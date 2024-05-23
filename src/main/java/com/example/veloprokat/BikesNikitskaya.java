@@ -1,4 +1,4 @@
 package com.example.veloprokat;
 
-public class Bikes {
+public class BikesNikitskaya {
 }

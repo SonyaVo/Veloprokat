@@ -2,48 +2,63 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.Registration">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.Registration">
    <children>
-      <Pane layoutX="13.0" layoutY="11.0" prefHeight="377.0" prefWidth="573.0">
+      <Pane layoutX="22.0" layoutY="25.0" prefHeight="550.0" prefWidth="556.0" style="-fx-background-color: #ffefe7;">
          <children>
-            <Label layoutX="228.0" layoutY="24.0" text="Регистрация">
+            <Label alignment="CENTER" layoutX="197.0" layoutY="24.0" prefHeight="25.0" prefWidth="163.0" text="Регистрация" textFill="#012551">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font></Label>
-            <Button layoutX="255.0" layoutY="323.0" mnemonicParsing="false" text="Продолжить" />
-            <RadioButton layoutX="52.0" layoutY="287.0" mnemonicParsing="false" text="Согласен(на) с обработкой данных" />
-            <TextField layoutX="42.0" layoutY="69.0" prefHeight="25.0" prefWidth="295.0" promptText="ФИО">
+            <Button fx:id="btnNext" layoutX="205.0" layoutY="412.0" mnemonicParsing="false" onAction="#toNextReg" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="20.0" />
+               </font></Button>
+            <RadioButton fx:id="agree" layoutX="43.0" layoutY="338.0" mnemonicParsing="false" text="Согласен(на) с обработкой данных" textFill="#012551">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="14.0" />
+               </font></RadioButton>
+            <TextField fx:id="name" layoutX="42.0" layoutY="69.0" prefHeight="28.0" prefWidth="499.0" promptText="ФИО">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="42.0" layoutY="117.0" prefHeight="17.0" prefWidth="295.0" promptText="Паспорт(номер и серия)">
+            <TextField fx:id="passport" layoutX="42.0" layoutY="117.0" prefHeight="28.0" prefWidth="499.0" promptText="Паспорт(номер и серия)">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="42.0" layoutY="157.0" promptText="Телефон">
+            <TextField fx:id="phone" layoutX="42.0" layoutY="157.0" prefHeight="28.0" prefWidth="499.0" promptText="Телефон">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="14.0" />
                </font></TextField>
-            <TextField layoutX="42.0" layoutY="200.0" promptText="Адрес">
+            <TextField fx:id="adress" layoutX="42.0" layoutY="200.0" prefHeight="28.0" prefWidth="499.0" promptText="Адрес">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="14.0" />
                </font></TextField>
-            <TextField layoutX="321.0" layoutY="200.0" prefHeight="25.0" prefWidth="153.0" promptText="Введите еще раз">
+            <PasswordField fx:id="password" layoutX="42.0" layoutY="250.0" prefHeight="25.0" prefWidth="499.0" promptText="Пароль">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="14.0" />
-               </font></TextField>
-            <TextField layoutX="339.0" layoutY="157.0" promptText="Пароль">
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="passwordAg" layoutX="42.0" layoutY="291.0" prefHeight="25.0" prefWidth="499.0" promptText="Введите еще раз">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="14.0" />
-               </font></TextField>
+               </font>
+            </PasswordField>
+            <Button fx:id="btnBack" layoutX="191.0" layoutY="467.0" mnemonicParsing="false" onAction="#toBackReg" style="-fx-background-color: #bedbff;" text="Вернуться назад" textFill="#012551">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="17.0" />
+               </font>
+            </Button>
+            <Label fx:id="errorText" layoutX="42.0" layoutY="373.0" prefHeight="17.0" prefWidth="499.0" />
          </children>
       </Pane>
    </children>

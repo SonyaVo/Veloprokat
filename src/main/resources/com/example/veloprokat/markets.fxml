@@ -32,6 +32,7 @@
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font></Button>
             <Label fx:id="errorText" layoutX="86.0" layoutY="254.0" prefHeight="17.0" prefWidth="418.0" />
+            <Button fx:id="profile" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#toProfile" text="Профиль" />
          </children>
       </Pane>
    </children>

@@ -65,14 +65,29 @@ public class BikesKashirka {
     private Label errorTextWelt;
 
     @FXML
-    void toFinish(ActionEvent event) throws IOException {
+    private Button profile;
+
+
+    @FXML
+    void toProfile(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnNext.getScene().getWindow();
         stage.close();
         Stage p = new Stage();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(".fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile.fxml")));
         p.setTitle("dddd");
-        p.setScene(new Scene(root, 600, 400));
+        p.setScene(new Scene(root, 600, 600));
         p.show();
+    }
+
+    @FXML
+    void toFinish(ActionEvent event) throws IOException {
+//        Stage stage = (Stage) btnNext.getScene().getWindow();
+//        stage.close();
+//        Stage p = new Stage();
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(".fxml")));
+//        p.setTitle("dddd");
+//        p.setScene(new Scene(root, 600, 400));
+//        p.show();
     }
 
     @FXML
@@ -102,6 +117,7 @@ public class BikesKashirka {
         assert errorTextMaxit != null : "fx:id=\"errorTextMaxit\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
         assert errorTextTwister != null : "fx:id=\"errorTextTwister\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
         assert errorTextWelt != null : "fx:id=\"errorTextWelt\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
+        assert profile != null : "fx:id=\"profile\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
 
     }
 

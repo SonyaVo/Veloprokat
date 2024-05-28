@@ -16,9 +16,9 @@
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1499.0" prefWidth="701.0">
             <children>
-                <Pane layoutX="14.0" layoutY="15.0" prefHeight="1469.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
+                <Pane layoutX="14.0" layoutY="15.0" prefHeight="1469.0" prefWidth="660.0" style="-fx-background-color: #ffe4d6;">
                     <children>
-                        <Label layoutX="196.0" layoutY="23.0" text="Магазин на каширке" textFill="#012551">
+                        <Label alignment="CENTER" layoutX="164.0" layoutY="27.0" prefHeight="26.0" prefWidth="321.0" style="-fx-background-color: #ffffff;" text="Магазин на семеновской" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="21.0" />
                             </font>
@@ -28,24 +28,24 @@
                                 <Font name="DejaVu Sans Mono Bold" size="17.0" />
                             </font>
                         </Label>
-                        <Button fx:id="btnNext" layoutX="268.0" layoutY="1333.0" mnemonicParsing="false" onAction="#toFinish" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
+                        <Button fx:id="btnBack" layoutX="215.0" layoutY="1366.0" mnemonicParsing="false" onAction="#toMarkets" style="-fx-background-color: #ff5f00;" text="Вернуться к магазинам" textFill="WHITE">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="16.0" />
                             </font>
                         </Button>
-                        <Button fx:id="btnBack" layoutX="218.0" layoutY="1375.0" mnemonicParsing="false" onAction="#toMarkets" style="-fx-background-color: #bedbff;" text="Вернуться к магазинам" textFill="#012551">
+                        <Button fx:id="btnNext" layoutX="272.0" layoutY="1327.0" mnemonicParsing="false" onAction="#toFinish" style="-fx-background-color: #bedbff;" text="Продолжить" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="16.0" />
                             </font>
                         </Button>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="302.0" layoutX="13.0" layoutY="250.0" stroke="#a1bedf" strokeType="INSIDE" width="285.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fabb9c" height="302.0" layoutX="13.0" layoutY="250.0" stroke="#fabb9c" strokeType="INSIDE" width="285.0" />
                         <Spinner fx:id="countMaxit" layoutX="81.0" layoutY="484.0" />
                         <ImageView disable="true" fitHeight="163.0" fitWidth="268.0" focusTraversable="true" layoutX="21.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../../../../../../Desktop/Велик%201.jpg" />
                             </image>
                         </ImageView>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="303.0" layoutX="324.0" layoutY="248.0" stroke="#a1bedf" strokeType="INSIDE" width="307.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fabb9c" height="303.0" layoutX="324.0" layoutY="248.0" stroke="#fabb9c" strokeType="INSIDE" width="307.0" />
                         <ImageView fitHeight="178.0" fitWidth="259.0" layoutX="343.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../../../../../../Desktop/Велик-2.jpg" />
@@ -145,14 +145,14 @@
                                 <Font name="DejaVu Sans Mono Bold" size="17.0" />
                             </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="302.0" layoutX="13.0" layoutY="610.0" stroke="#a1bedf" strokeType="INSIDE" width="285.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fabb9c" height="302.0" layoutX="13.0" layoutY="610.0" stroke="#fabb9c" strokeType="INSIDE" width="285.0" />
                         <Spinner fx:id="countWelt" layoutX="88.0" layoutY="845.0" />
                         <ImageView fitHeight="163.0" fitWidth="268.0" layoutX="23.0" layoutY="629.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../../../../../../Desktop/Велик%201.jpg" />
                             </image>
                         </ImageView>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="303.0" layoutX="324.0" layoutY="609.0" stroke="#a1bedf" strokeType="INSIDE" width="307.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fabb9c" height="303.0" layoutX="324.0" layoutY="609.0" stroke="#fabb9c" strokeType="INSIDE" width="307.0" />
                         <ImageView fitHeight="178.0" fitWidth="259.0" layoutX="350.0" layoutY="629.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../../../../../../Desktop/Велик-2.jpg" />
@@ -182,19 +182,19 @@
                         <Label fx:id="errorTextWelt" layoutX="143.0" layoutY="882.0" text="Label" />
                         <Label fx:id="errorTextAddict" layoutX="471.0" layoutY="882.0" text="Label" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="231.0" layoutY="964.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label layoutX="50.0" layoutY="923.0" prefHeight="13.0" prefWidth="487.0" text="Горный">
+                        <Label layoutX="50.0" layoutY="923.0" prefHeight="13.0" prefWidth="487.0" text="Горный" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="17.0" />
                             </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="302.0" layoutX="13.0" layoutY="958.0" stroke="#a1bedf" strokeType="INSIDE" width="285.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fabb9c" height="302.0" layoutX="13.0" layoutY="958.0" stroke="#fabb9c" strokeType="INSIDE" width="285.0" />
                         <Spinner fx:id="countAltair" layoutX="88.0" layoutY="1192.0" />
                         <ImageView fitHeight="163.0" fitWidth="268.0" layoutX="21.0" layoutY="976.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../../../../../../Desktop/Велик%201.jpg" />
                             </image>
                         </ImageView>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="303.0" layoutX="324.0" layoutY="956.0" stroke="#a1bedf" strokeType="INSIDE" width="307.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fabb9c" height="303.0" layoutX="324.0" layoutY="956.0" smooth="false" stroke="#fabb9c" strokeType="INSIDE" width="307.0" />
                         <ImageView fitHeight="178.0" fitWidth="259.0" layoutX="350.0" layoutY="976.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../../../../../../Desktop/Велик-2.jpg" />
@@ -227,6 +227,7 @@
                         <Line endX="141.800048828125" endY="120.20001220703125" layoutX="445.0" layoutY="288.0" startX="-100.0" />
                         <Line endX="112.0" endY="69.0" layoutX="150.0" layoutY="692.0" startX="-115.99999237060547" startY="-43.79998779296875" />
                         <Line endX="148.2000732421875" endY="150.39996337890625" layoutX="445.0" layoutY="629.0" startX="-100.0" />
+                  <Button fx:id="profile" layoutX="17.0" layoutY="28.0" mnemonicParsing="false" onAction="#toProfile" text="Профиль" />
                     </children>
                 </Pane>
             </children></AnchorPane>

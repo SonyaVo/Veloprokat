@@ -18,7 +18,7 @@
             <children>
                 <Pane layoutX="14.0" layoutY="15.0" prefHeight="1469.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
                     <children>
-                        <Label layoutX="196.0" layoutY="23.0" text="Магазин на каширке" textFill="#012551">
+                        <Label layoutX="196.0" layoutY="23.0" text="Магазин на никитской" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="21.0" />
                             </font>
@@ -182,7 +182,7 @@
                         <Label fx:id="errorTextWelt" layoutX="143.0" layoutY="882.0" text="Label" />
                         <Label fx:id="errorTextAddict" layoutX="471.0" layoutY="882.0" text="Label" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="231.0" layoutY="964.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label layoutX="50.0" layoutY="923.0" prefHeight="13.0" prefWidth="487.0" text="Горный">
+                        <Label layoutX="50.0" layoutY="923.0" prefHeight="13.0" prefWidth="487.0" text="Горный" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="17.0" />
                             </font>
@@ -227,6 +227,7 @@
                         <Line endX="141.800048828125" endY="120.20001220703125" layoutX="445.0" layoutY="288.0" startX="-100.0" />
                         <Line endX="112.0" endY="69.0" layoutX="150.0" layoutY="692.0" startX="-115.99999237060547" startY="-43.79998779296875" />
                         <Line endX="148.2000732421875" endY="150.39996337890625" layoutX="445.0" layoutY="629.0" startX="-100.0" />
+                  <Button fx:id="profile" layoutX="22.0" layoutY="24.0" mnemonicParsing="false" onAction="#toProfile" text="Профиль" />
                     </children>
                 </Pane>
             </children></AnchorPane>

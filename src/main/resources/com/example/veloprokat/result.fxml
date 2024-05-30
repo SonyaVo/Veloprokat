@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.Result">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="600.0">
+         <children>
+            <Pane layoutX="14.0" layoutY="14.0" prefHeight="562.0" prefWidth="561.0" style="-fx-background-color: #dee8f4;">
+               <children>
+                  <Label layoutX="34.0" layoutY="114.0" prefHeight="19.0" prefWidth="487.0" text="Дата аренды:" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="80.0" prefHeight="21.0" prefWidth="503.0" text="Ваш заказ:" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="200.0" layoutY="38.0" text="Броирование" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="143.0" prefHeight="96.0" prefWidth="485.0" text="ддд" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="239.0" text="Итого: ххх" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnBook" layoutX="200.0" layoutY="370.0" mnemonicParsing="false" onAction="#toBook" style="-fx-background-color: #ff5f00;" text="Подтвердить бронь" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnProfile" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#toProfile" style="-fx-background-color: #bedbff;" text="Профиль" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnBack" layoutX="188.0" layoutY="423.0" mnemonicParsing="false" onAction="#toMarkets" style="-fx-background-color: #bedbff;" text="Вернуться в магазин" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnOrders" layoutX="100.0" layoutY="14.0" mnemonicParsing="false" onAction="#toOrders" style="-fx-background-color: #bedbff;" text="Заказы" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="numberBook" layoutX="246.0" layoutY="489.0" text="Label">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>

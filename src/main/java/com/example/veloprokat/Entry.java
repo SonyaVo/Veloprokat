@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Entry {
-
+    final String nameFile = "entry.fxml";
     @FXML
     private ResourceBundle resources;
 
@@ -38,27 +38,28 @@ public class Entry {
     @FXML
     private PasswordField password;
 
+    public Entry(){
+        List.add(nameFile);
+    }
+
+
 
     @FXML
     void toBackEntr(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
-        stage.close();
-        Stage p = new Stage();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
-        p.setTitle("dddd");
-        p.setScene(new Scene(root, 600, 400));
-        p.show();
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
     }
 
     @FXML
     void toMarketsEntr(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnNext.getScene().getWindow();
-        stage.close();
-        Stage p = new Stage();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets.fxml")));
-        p.setTitle("dddd");
-        p.setScene(new Scene(root, 600, 400));
-        p.show();
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
     }
 
     @FXML

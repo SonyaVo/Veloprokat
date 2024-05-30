@@ -32,7 +32,16 @@
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font></Button>
             <Label fx:id="errorText" layoutX="86.0" layoutY="254.0" prefHeight="17.0" prefWidth="418.0" />
-            <Button fx:id="profile" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#toProfile" text="Профиль" />
+            <Button fx:id="btnProfile" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#toProfile" text="Профиль" textFill="#012551">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnOrders" layoutX="92.0" layoutY="13.0" mnemonicParsing="false" onAction="#toOrders" text="Заказы" textFill="#012551">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

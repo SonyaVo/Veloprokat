@@ -1,9 +1,8 @@
 package com.example.veloprokat;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.Objects;
-import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Registration {
+    final String nameFile = "registration.fxml";
 
     @FXML
     private TextField adress;
@@ -47,26 +47,29 @@ public class Registration {
 
     @FXML
     private TextField phone;
+
+    public Registration(){
+        List.add(nameFile);
+    }
     @FXML
     void toBackReg(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
-        stage.close();
-        Stage p = new Stage();
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
-        p.setTitle("dddd");
-        p.setScene(new Scene(root, 600, 400));
-        p.show();
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
+
     }
 
     @FXML
     void toNextReg(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnNext.getScene().getWindow();
-        stage.close();
-        Stage p = new Stage();
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
-        p.setTitle("dddd");
-        p.setScene(new Scene(root, 600, 400));
-        p.show();
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
     }
 
     @FXML

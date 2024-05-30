@@ -10,10 +10,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class Profile {
+    final String nameFile = "profile.fxml";
 
     @FXML
     private ResourceBundle resources;
@@ -22,7 +23,7 @@ public class Profile {
     private URL location;
 
     @FXML
-    private TextField adress;
+    private Label adress;
 
     @FXML
     private Button btnBack;
@@ -31,28 +32,37 @@ public class Profile {
     private Button btnChange;
 
     @FXML
-    private TextField name;
+    private Label name;
 
     @FXML
-    private TextField passport;
+    private Label passport;
 
     @FXML
-    private TextField phone;
+    private Label phone;
 
-    @FXML
-    void toBack(ActionEvent event) throws IOException {
-
-//        Stage stage = (Stage) btnBack.getScene().getWindow();
-//        stage.close();
-//        Stage p = new Stage();
-//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("bikes_kashirka.fxml")));
-//        p.setTitle("dddd");
-//        p.setScene(new Scene(root, 600, 400));
-//        p.show();
+    public Profile(){
+        List.add(nameFile);
     }
 
     @FXML
-    void toChange(ActionEvent event) {
+    void toBack(ActionEvent event) throws IOException {
+        if (!List.list.isEmpty()) {
+            Stage stage = (Stage) btnBack.getScene().getWindow();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(List.get(List.list.size() - 2))));
+            stage.setTitle("dddd");
+            stage.setScene(new Scene(root, 600, 400));
+            stage.show();
+        }
+    }
+
+    @FXML
+    void toChange(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile_to_change.fxml")));
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
 
     }
 
@@ -66,5 +76,6 @@ public class Profile {
         assert phone != null : "fx:id=\"phone\" was not injected: check your FXML file 'profile.fxml'.";
 
     }
+
 
 }

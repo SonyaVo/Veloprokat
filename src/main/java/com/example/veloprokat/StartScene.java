@@ -12,7 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class StartScene {
+public class StartScene  {
+    final String nameFile = "start_scene.fxml";
 
     @FXML
     private ResourceBundle resources;
@@ -26,27 +27,27 @@ public class StartScene {
     @FXML
     private Button btnReg;
 
+    public StartScene(){
+        List.add(nameFile);
+    }
+
     @FXML
     void toEntr(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnEntr.getScene().getWindow();
-        stage.close();
-        Stage p = new Stage();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("entry.fxml")));
-        p.setTitle("dddd");
-        p.setScene(new Scene(root, 600, 400));
-        p.show();
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
 
     }
 
     @FXML
     void toReg(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnReg.getScene().getWindow();
-        stage.close();
-        Stage p = new Stage();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("registration.fxml")));
-        p.setTitle("dddd");
-        p.setScene(new Scene(root, 600, 600));
-        p.show();
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 600, 600));
+        stage.show();
     }
 
     @FXML
@@ -56,6 +57,9 @@ public class StartScene {
 
     }
 
+    public String getName() {
+        return nameFile;
+    }
 }
 
 //package com.example.veloprokat;

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,9 @@ public class BikesKashirka{
 
     @FXML
     private URL location;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     @FXML
     private RadioButton btn1HourAddict;
@@ -145,6 +150,8 @@ public class BikesKashirka{
     @FXML
     private ToggleGroup groupBikes;
 
+    private static String choice = "";
+
     public BikesKashirka(){
         List.add(nameFile);
     }
@@ -176,6 +183,90 @@ public class BikesKashirka{
 
     @FXML
     void toFinish(ActionEvent event) throws IOException {
+        if (btnAddict.isSelected()){
+            if (btn1HourAddict.isSelected()){
+                choice = "Addict 1Hour";
+            }
+            if(btn3HourAddict.isSelected()){
+                choice = "Addict 3Hour";
+
+            }
+            if (btn1WeekAddict.isSelected()){
+                choice = "Addict 1Week";
+
+            }
+        }
+
+        if (btnAltair.isSelected()){
+            if (btn1HourAltair.isSelected()){
+                choice = "Altair 1Hour";
+            }
+            if(btn3HourAltair.isSelected()){
+                choice = "Altair 3Hour";
+
+            }
+            if (btn1WeekAltair.isSelected()){
+                choice = "Altair 1Week";
+
+            }
+        }
+
+        if (btnFormat.isSelected()){
+            if (btn1HourFormat.isSelected()){
+                choice = "Format 1Hour";
+            }
+            if(btn3HourFormat.isSelected()){
+                choice = "Format 3Hour";
+
+            }
+            if (btn1WeekFormat.isSelected()){
+                choice = "Format 1Week";
+
+            }
+        }
+
+        if (btnMaxit.isSelected()){
+            if (btn1HourMaxit.isSelected()){
+                choice = "Maxit 1Hour";
+            }
+            if(btn3HourMaxit.isSelected()){
+                choice = "Maxit 3Hour";
+
+            }
+            if (btn1WeekMaxit.isSelected()){
+                choice = "Maxit 1Week";
+
+            }
+        }
+
+        if (btnTwister.isSelected()){
+            if (btn1HourTwister.isSelected()){
+                choice = "Twister 1Hour";
+            }
+            if(btn3HourTwister.isSelected()){
+                choice = "Twister 3Hour";
+
+            }
+            if (btn1WeekTwister.isSelected()){
+                choice = "Twister 1Week";
+
+            }
+        }
+
+        if (btnWelt.isSelected()){
+            if (btn1HourWelt.isSelected()){
+                choice = "Welt 1Hour";
+            }
+            if(btn3HourWelt.isSelected()){
+                choice = "Welt 3Hour";
+
+            }
+            if (btn1WeekWelt.isSelected()){
+                choice = "Welt 1Week";
+
+            }
+        }
+
         Stage stage = (Stage) btnNext.getScene().getWindow();
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("result.fxml")));
@@ -194,6 +285,9 @@ public class BikesKashirka{
         stage.show();
     }
 
+    public static String getChoice() {
+        return choice;
+    }
     @FXML
     void initialize() {
         assert btn1HourAddict != null : "fx:id=\"btn1HourAddict\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
@@ -232,7 +326,12 @@ public class BikesKashirka{
         assert errorTextWelt != null : "fx:id=\"errorTextWelt\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btnOrders != null : "fx:id=\"orders\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btnProfile != null : "fx:id=\"profile\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert scrollPane != null : "fx:id=\"scrollPane\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
 
+        Platform.runLater(() -> {
+            scrollPane.setVvalue(0);
+            scrollPane.setHvalue(0);
+        });
 
         groupAddict = new ToggleGroup();
         btn1HourAddict.setToggleGroup(groupAddict);
@@ -290,6 +389,91 @@ public class BikesKashirka{
         btnFormat.setToggleGroup(groupBikes);
         btnMaxit.setToggleGroup(groupBikes);
         btnWelt.setToggleGroup(groupBikes);
+
+
+
+        if (!choice.equals("")){
+
+            if (choice.split(" ")[0].equals("Altair")){
+                btnAltair.setSelected(true);
+                if (choice.split(" ")[1].equals("1Hour")){
+                    btn1HourAltair.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("3Hour")){
+                    btn3HourAltair.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("1Week")){
+                    btn1WeekAltair.setSelected(true);
+                }
+            }
+            if (choice.split(" ")[0].equals("Addict")){
+                btnAddict.setSelected(true);
+
+                if (choice.split(" ")[1].equals("1Hour")){
+                    btn1HourAddict.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("3Hour")){
+                    btn3HourAddict.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("1Week")){
+                    btn1WeekAddict.setSelected(true);
+                }
+            }
+
+            if (choice.split(" ")[0].equals("Format")){
+                btnFormat.setSelected(true);
+
+                if (choice.split(" ")[1].equals("1Hour")){
+                    btn1HourFormat.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("3Hour")){
+                    btn3HourFormat.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("1Week")){
+                    btn1WeekFormat.setSelected(true);
+                }
+            }
+
+            if (choice.split(" ")[0].equals("Twister")){
+                btnTwister.setSelected(true);
+
+                if (choice.split(" ")[1].equals("1Hour")){
+                    btn1HourTwister.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("3Hour")){
+                    btn3HourTwister.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("1Week")){
+                    btn1WeekTwister.setSelected(true);
+                }
+            }
+            if (choice.split(" ")[0].equals("Maxit")){
+                btnMaxit.setSelected(true);
+
+                if (choice.split(" ")[1].equals("1Hour")){
+                    btn1HourMaxit.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("3Hour")){
+                    btn3HourMaxit.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("1Week")){
+                    btn1WeekMaxit.setSelected(true);
+                }
+            }
+            if (choice.split(" ")[0].equals("Welt")){
+                btnWelt.setSelected(true);
+
+                if (choice.split(" ")[1].equals("1Hour")){
+                    btn1HourWelt.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("3Hour")){
+                    btn3HourWelt.setSelected(true);
+                }
+                if (choice.split(" ")[1].equals("1Week")){
+                    btn1WeekWelt.setSelected(true);
+                }
+            }
+        }
 
     }
 

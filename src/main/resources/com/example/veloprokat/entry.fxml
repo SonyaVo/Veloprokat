@@ -9,38 +9,41 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.Entry">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.Entry">
   <content>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="700.0">
          <children>
-            <Pane layoutX="19.0" layoutY="17.0" prefHeight="365.0" prefWidth="561.0" style="-fx-background-color: #dee8f4;">
+            <Pane layoutX="20.0" layoutY="20.0" prefHeight="560.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
                <children>
-                  <Label alignment="CENTER" layoutX="222.0" layoutY="44.0" prefHeight="33.0" prefWidth="117.0" text="Войти" textFill="#012551">
+                  <Label alignment="CENTER" layoutX="270.0" layoutY="142.0" prefHeight="30.0" prefWidth="120.0" text="ВОЙТИ" textFill="#012551">
                      <font>
-                        <Font name="DejaVu Sans Mono Bold" size="22.0" />
+                        <Font name="DejaVu Sans Mono Bold" size="28.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="login" layoutX="184.0" layoutY="115.0" prefHeight="28.0" prefWidth="193.0" promptText="Логин(телефон)">
+                  <TextField fx:id="login" layoutX="231.0" layoutY="226.0" prefHeight="30.0" prefWidth="200.0" promptText="Логин(телефон)">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="14.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="password" layoutX="184.0" layoutY="175.0" prefHeight="28.0" prefWidth="193.0" promptText="Пароль">
+                  <PasswordField fx:id="password" layoutX="230.0" layoutY="270.0" prefHeight="30.0" prefWidth="200.0" promptText="Пароль">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="14.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="btnNext" layoutX="209.0" layoutY="266.0" mnemonicParsing="false" onAction="#toMarketsEntr" prefHeight="32.0" prefWidth="144.0" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
+                  <Button fx:id="btnNext" layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#toMarketsEntr" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
                      <font>
-                        <Font name="DejaVu Sans Mono Bold" size="17.0" />
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnBack" layoutX="208.0" layoutY="308.0" mnemonicParsing="false" onAction="#toBackEntr" style="-fx-background-color: #bedbff;" text="Вернуться назад" textFill="#012551">
+                  <Button fx:id="btnBack" layoutX="248.0" layoutY="386.0" mnemonicParsing="false" onAction="#toBackEntr" style="-fx-background-color: #bedbff;" text="Вернуться назад" textFill="#012551">
                      <font>
-                        <Font name="DejaVu Sans Mono Bold" size="14.0" />
+                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Label fx:id="errorText" layoutX="156.0" layoutY="226.0" prefHeight="17.0" prefWidth="250.0" />
+                  <Label fx:id="errorText" layoutX="164.0" layoutY="192.0" prefHeight="20.0" prefWidth="332.0" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                     </font></Label>
                </children>
             </Pane>
          </children>

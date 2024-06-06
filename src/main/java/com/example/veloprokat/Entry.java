@@ -49,7 +49,7 @@ public class Entry {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
         stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 700, 600));
         stage.show();
     }
 
@@ -58,7 +58,7 @@ public class Entry {
         Stage stage = (Stage) btnNext.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets.fxml")));
         stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 700, 600));
         stage.show();
     }
 

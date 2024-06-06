@@ -22,6 +22,8 @@ public class Result {
 
     @FXML
     private URL location;
+    @FXML
+    private Label res;
 
     @FXML
     private Button btnBook;
@@ -60,8 +62,12 @@ public class Result {
     }
 
     @FXML
-    void toOrders(ActionEvent event) {
-        // Implement the logic for orders button click if needed
+    void toOrders(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("orders.fxml")));
+        stage.setTitle("Profile");
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
     }
 
     @FXML
@@ -81,5 +87,24 @@ public class Result {
         assert btnProfile != null : "fx:id=\"btnProfile\" was not injected: check your FXML file 'result.fxml'.";
         assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'result.fxml'.";
         assert numberBook != null : "fx:id=\"numberBook\" was not injected: check your FXML file 'result.fxml'.";
+        assert res != null : "fx:id=\"res\" was not injected: check your FXML file 'result.fxml'.";
+
+        switch (List.get(List.list.size() - 2)){
+            case ("bikes_kashirka.fxml"):
+                res.setText(BikesKashirka.getChoice());
+                break;
+            case ("bikes_semenovskaya.fxml"):
+                res.setText(BikesSemenovskaya.getChoice());
+                break;
+
+            case ("bikes_nikitskaya.fxml"):
+                res.setText(BikesNikitskaya.getChoice());
+                break;
+        }
+
+
+
+
+
     }
 }

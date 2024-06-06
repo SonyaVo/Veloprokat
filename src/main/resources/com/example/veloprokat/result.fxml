@@ -28,7 +28,7 @@
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="34.0" layoutY="143.0" prefHeight="96.0" prefWidth="485.0" text="ддд" textFill="#012551">
+                  <Label fx:id="res" layoutX="34.0" layoutY="143.0" prefHeight="96.0" prefWidth="485.0" text="ддд" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>

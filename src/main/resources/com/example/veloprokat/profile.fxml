@@ -30,7 +30,7 @@
                         <Font name="DejaVu Sans Mono Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Circle fill="WHITE" layoutX="280.0" layoutY="116.0" radius="77.0" stroke="WHITE" strokeType="INSIDE" />
+                  <Circle fill="WHITE" layoutX="280.0" layoutY="130.0" radius="77.0" stroke="WHITE" strokeType="INSIDE" />
                   <Polygon fill="#8bb7ea" layoutX="280.0" layoutY="153.0" points="-36.80000305175781, 29.0, 37.60003662109375, 29.0, 0.0, -60.0" stroke="#8bb7ea" strokeType="INSIDE" />
                   <Circle fill="#8bb7ea" layoutX="280.0" layoutY="93.0" radius="27.0" stroke="#8bb7ea" strokeType="INSIDE" />
                   <Label layoutX="109.0" layoutY="259.0" text="Телефон:" textFill="#012551">
@@ -48,7 +48,7 @@
                         <Font name="DejaVu Sans Mono Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="238.0" layoutY="14.0" text="Аккаунт" textFill="#012551">
+                  <Label layoutX="238.0" layoutY="14.0" text="АККАУНТ" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="20.0" />
                      </font>

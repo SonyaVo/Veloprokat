@@ -47,8 +47,12 @@ public class Markets  {
     }
 
     @FXML
-    void toOrders(ActionEvent event) {
-
+    void toOrders(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnProfile.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("orders.fxml")));
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 700, 600));
+        stage.show();
     }
 
     @FXML
@@ -56,7 +60,7 @@ public class Markets  {
         Stage stage = (Stage) btnProfile.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile.fxml")));
         stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 600, 600));
+        stage.setScene(new Scene(root, 700, 600));
         stage.show();
     }
 
@@ -69,7 +73,7 @@ public class Markets  {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("bikes_kashirka.fxml")));
             stage.setTitle("dddd");
-            stage.setScene(new Scene(root, 600, 400));
+            stage.setScene(new Scene(root, 715, 600));
             stage.show();
         }
 
@@ -78,7 +82,7 @@ public class Markets  {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("bikes_semenovskaya.fxml")));
             stage.setTitle("dddd");
-            stage.setScene(new Scene(root, 600, 400));
+            stage.setScene(new Scene(root, 715, 600));
             stage.show();
         }
 
@@ -87,15 +91,11 @@ public class Markets  {
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("bikes_nikitskaya.fxml")));
             stage.setTitle("dddd");
-            stage.setScene(new Scene(root, 600, 400));
+            stage.setScene(new Scene(root, 715, 600));
             stage.show();
         }
 
     }
-
-
-
-
 
 
     @FXML

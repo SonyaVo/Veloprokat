@@ -36,7 +36,7 @@ public class StartScene  {
         Stage stage = (Stage) btnEntr.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("entry.fxml")));
         stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 701, 601));
         stage.show();
 
     }
@@ -46,7 +46,7 @@ public class StartScene  {
         Stage stage = (Stage) btnReg.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("registration.fxml")));
         stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 600, 600));
+        stage.setScene(new Scene(root, 700, 600));
         stage.show();
     }
 

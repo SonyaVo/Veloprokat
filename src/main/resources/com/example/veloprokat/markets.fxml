@@ -7,39 +7,39 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.Markets">
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.Markets">
    <children>
-      <Pane layoutX="12.0" layoutY="9.0" prefHeight="381.0" prefWidth="576.0" style="-fx-background-color: #dee8f4;">
+      <Pane layoutX="20.0" layoutY="20.0" prefHeight="560.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
          <children>
-            <Label alignment="CENTER" layoutX="208.0" layoutY="41.0" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: #ffffff;" text="МАГАЗИНЫ" textFill="#012551">
+            <Label alignment="CENTER" layoutX="250.0" layoutY="94.0" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: #ffffff;" text="МАГАЗИНЫ" textFill="#012551">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="26.0" />
                </font></Label>
-            <RadioButton fx:id="btnKashirskya" layoutX="86.0" layoutY="122.0" mnemonicParsing="false" text="Каширская улица, дом 3, корпус 1" textFill="#012551">
+            <RadioButton fx:id="btnKashirskya" layoutX="92.0" layoutY="192.0" mnemonicParsing="false" text="&quot;Крути&quot;: Каширская улица, дом 3, корпус 1" textFill="#012551">
                <font>
-                  <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                  <Font name="DejaVu Sans Mono Bold" size="18.0" />
                </font></RadioButton>
-            <RadioButton fx:id="btnNikitskya" layoutX="86.0" layoutY="172.0" mnemonicParsing="false" text="Никитская улица, дом 22" textFill="#012551">
+            <RadioButton fx:id="btnNikitskya" layoutX="92.0" layoutY="271.0" mnemonicParsing="false" text="&quot;Велик&quot;: Никитская улица, дом 22" textFill="#012551">
                <font>
-                  <Font name="DejaVu Sans Mono Bold" size="14.0" />
+                  <Font name="DejaVu Sans Mono Bold" size="18.0" />
                </font></RadioButton>
-            <RadioButton fx:id="btnSemenovskya" layoutX="85.0" layoutY="214.0" mnemonicParsing="false" text="Большая семеновская улица, дом 55, строение 1" textFill="#012551">
+            <RadioButton fx:id="btnSemenovskya" layoutX="92.0" layoutY="342.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="470.0" text="&quot;Мчи&quot;: Большая семеновская улица, дом 55" textFill="#012551">
                <font>
-                  <Font name="DejaVu Sans Mono Bold" size="14.0" />
+                  <Font name="DejaVu Sans Mono Bold" size="18.0" />
                </font></RadioButton>
-            <Button fx:id="btnNext" layoutX="171.0" layoutY="282.0" mnemonicParsing="false" onAction="#toMarkets" style="-fx-background-color: #ff5f00;" text="Перейти в магазин" textFill="WHITE">
+            <Button fx:id="btnNext" layoutX="212.0" layoutY="428.0" mnemonicParsing="false" onAction="#toMarkets" prefHeight="38.0" prefWidth="236.0" style="-fx-background-color: #ff5f00;" text="Перейти в магазин" textFill="WHITE">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font></Button>
-            <Label fx:id="errorText" layoutX="86.0" layoutY="254.0" prefHeight="17.0" prefWidth="418.0" />
-            <Button fx:id="btnProfile" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#toProfile" text="Профиль" textFill="#012551">
+            <Label fx:id="errorText" layoutX="118.0" layoutY="389.0" prefHeight="17.0" prefWidth="418.0" />
+            <Button fx:id="btnProfile" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#toProfile" style="-fx-background-color: #b0c8e4;" text="Профиль" textFill="#012551">
                <font>
-                  <Font name="DejaVu Sans Mono Bold" size="14.0" />
+                  <Font name="DejaVu Sans Mono Bold" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnOrders" layoutX="92.0" layoutY="13.0" mnemonicParsing="false" onAction="#toOrders" text="Заказы" textFill="#012551">
+            <Button fx:id="btnOrders" layoutX="99.0" layoutY="14.0" mnemonicParsing="false" onAction="#toOrders" style="-fx-background-color: #b0c8e4;" text="Заказы" textFill="#012551">
                <font>
-                  <Font name="DejaVu Sans Mono Bold" size="15.0" />
+                  <Font name="DejaVu Sans Mono Bold" size="16.0" />
                </font>
             </Button>
          </children>

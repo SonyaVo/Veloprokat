@@ -37,20 +37,41 @@ public class ProfileToChange   {
     @FXML
     private TextField phone;
 
+    private static String varName;
+    private static String varPhone;
+    private static String varPassport;
+    private static String varAdress;
+
+
+
     public ProfileToChange(){
-        List.add(nameFile);
+        //List.add(nameFile);
+
     }
 
 
     @FXML
     void toSave(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnSave.getScene().getWindow();
-
-
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile.fxml")));
         stage.setTitle("dddd");
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
+    }
+    public static String getVarAdress() {
+        return varAdress;
+    }
+
+    public static String getVarPassport() {
+        return varPassport;
+    }
+
+    public static String getVarName() {
+        return varName;
+    }
+
+    public static String getVarPhone() {
+        return varPhone;
     }
 
     @FXML
@@ -61,6 +82,15 @@ public class ProfileToChange   {
         assert passport != null : "fx:id=\"passport\" was not injected: check your FXML file 'profile_to_change.fxml'.";
         assert phone != null : "fx:id=\"phone\" was not injected: check your FXML file 'profile_to_change.fxml'.";
 
+        varName = Profile.getVarName();
+        varPassport = Profile.getVarPassport();
+        varPhone = Profile.getVarPhone();
+        varAdress = Profile.getVarAdress();
+
+        name.setText(varName);
+        passport.setText(varPassport);
+        phone.setText(varPhone);
+        adress.setText(varAdress);
     }
 
 }

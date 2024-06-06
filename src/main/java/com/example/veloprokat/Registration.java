@@ -48,28 +48,97 @@ public class Registration {
     @FXML
     private TextField phone;
 
+    private static String varName;
+    private static String varPhone;
+    private static String varPassport;
+    private static String varAdress;
+
+    private static String varPassword;
+    private static String varPassword2;
+
+
+
     public Registration(){
         List.add(nameFile);
     }
     @FXML
-    void toBackReg(ActionEvent event) throws IOException {
+    void toBack(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
-
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
         stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 700, 600));
         stage.show();
 
     }
 
     @FXML
-    void toNextReg(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnNext.getScene().getWindow();
+    void toEntry(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
-        stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+        varName = name.getText();
+        varPassport = passport.getText();
+        varPhone = phone.getText();
+        varAdress = adress.getText();
+        //String n = name.getText();
+        //System.out.println(name);
+
+//        String lastName = name.getText().split(" ")[0];
+//        System.out.println(lastName);
+//        String firstName = name.getText().split(" ")[1];
+//        System.out.println(firstName);
+//        String patronymic = name.getText().split(" ")[2];
+//        System.out.println(patronymic);
+
+//
+//        String p = passport.getText();
+//        System.out.println(p);
+//        String adr = adress.getText();
+//        System.out.println(adr);
+//        String ph = phone.getText();
+//        System.out.println(ph);
+
+        varPassword = password.getText();
+        varPassword2 = passwordAg.getText();
+
+        if (name.getText().isEmpty()|| passport.getText().isEmpty() ||  adress.getText().isEmpty() ||  phone.getText().isEmpty() ||  password.getText().isEmpty() ||  passwordAg.getText().isEmpty() ){
+            errorText.setText("Не все поля заполнены");
+        }
+
+
+        else {
+            errorText.setText("");
+            if (!varPassword.equals(varPassword2)){
+                errorText.setText("Пароль введен неправильно");
+            }
+            else {
+                errorText.setText("");
+                if (agree.isSelected()) {
+                    Stage stage = (Stage) btnNext.getScene().getWindow();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
+                    stage.setTitle("dddd");
+                    stage.setScene(new Scene(root, 700, 600));
+                    stage.show();
+                }
+                else {
+                    agree.setStyle("-fx-text-fill: red;");
+                }
+            }
+        }
+    }
+
+    public static String getVarAdress() {
+        return varAdress;
+    }
+
+    public static String getVarPassport() {
+        return varPassport;
+    }
+
+    public static String getVarName() {
+        return varName;
+    }
+
+    public static String getVarPhone() {
+        return varPhone;
     }
 
     @FXML

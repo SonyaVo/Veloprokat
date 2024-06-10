@@ -56,7 +56,7 @@ public class Profile {
             Stage stage = (Stage) btnBack.getScene().getWindow();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(List.get(List.list.size() - 1))));
             stage.setTitle("dddd");
-            stage.setScene(new Scene(root, 600, 600));
+            stage.setScene(new Scene(root, 700, 600));
             stage.show();
         }
     }
@@ -67,7 +67,7 @@ public class Profile {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile_to_change.fxml")));
         stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 600, 600));
+        stage.setScene(new Scene(root, 700, 600));
         stage.show();
 
     }

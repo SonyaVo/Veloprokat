@@ -55,7 +55,7 @@ public class ProfileToChange   {
         Stage stage = (Stage) btnSave.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile.fxml")));
         stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 700, 600));
         stage.show();
     }
     public static String getVarAdress() {

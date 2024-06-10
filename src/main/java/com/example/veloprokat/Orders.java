@@ -32,9 +32,9 @@ public class Orders {
     void toBack(ActionEvent event) throws IOException {
         if (!List.list.isEmpty()) {
             Stage stage = (Stage) btnBack.getScene().getWindow();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(List.get(List.list.size() - 2))));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(List.get(List.list.size() - 1))));
             stage.setTitle("dddd");
-            stage.setScene(new Scene(root, 600, 400));
+            stage.setScene(new Scene(root, 700, 600));
             stage.show();
         }
     }

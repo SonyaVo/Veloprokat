@@ -40,8 +40,23 @@ public class Result {
     @FXML
     private Label numberBook;
 
+    private String choice = "";
+
     public Result(){
         List.add(nameFile);
+        switch (List.get(List.list.size() - 2)){
+            case ("bikes_kashirka.fxml"):
+                choice = BikesKashirka.getChoice();
+                break;
+            case ("bikes_semenovskaya.fxml"):
+                choice = BikesSemenovskaya.getChoice();
+                break;
+
+            case ("bikes_nikitskaya.fxml"):
+                choice = BikesNikitskaya.getChoice();
+                break;
+
+        }
     }
 
     @FXML
@@ -56,7 +71,7 @@ public class Result {
             Stage stage = (Stage) btnBack.getScene().getWindow();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(List.get(List.list.size() - 2))));
             stage.setTitle("Markets");
-            stage.setScene(new Scene(root, 600, 400));
+            stage.setScene(new Scene(root, 700, 600));
             stage.show();
         }
     }
@@ -66,7 +81,7 @@ public class Result {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("orders.fxml")));
         stage.setTitle("Profile");
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 700, 600));
         stage.show();
     }
 
@@ -76,7 +91,7 @@ public class Result {
         Stage stage = (Stage) btnBack.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile.fxml")));
         stage.setTitle("Profile");
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 700, 600));
         stage.show();
     }
 
@@ -89,18 +104,8 @@ public class Result {
         assert numberBook != null : "fx:id=\"numberBook\" was not injected: check your FXML file 'result.fxml'.";
         assert res != null : "fx:id=\"res\" was not injected: check your FXML file 'result.fxml'.";
 
-        switch (List.get(List.list.size() - 2)){
-            case ("bikes_kashirka.fxml"):
-                res.setText(BikesKashirka.getChoice());
-                break;
-            case ("bikes_semenovskaya.fxml"):
-                res.setText(BikesSemenovskaya.getChoice());
-                break;
 
-            case ("bikes_nikitskaya.fxml"):
-                res.setText(BikesNikitskaya.getChoice());
-                break;
-        }
+        res.setText(choice);
 
 
 

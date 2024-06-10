@@ -16,7 +16,7 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1950.0" prefWidth="700.0">
          <children>
-            <Pane layoutX="20.0" layoutY="20.0" prefHeight="1900.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
+            <Pane layoutX="20.0" layoutY="20.0" prefHeight="1910.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
                <children>
                   <Label alignment="CENTER" layoutX="215.0" layoutY="62.0" prefHeight="26.0" prefWidth="230.0" text="Магазин на каширке" textFill="#012551">
                      <font>
@@ -28,12 +28,12 @@
                         <Font name="DejaVu Sans Mono Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnNext" layoutX="258.0" layoutY="1736.0" mnemonicParsing="false" onAction="#toFinish" prefHeight="38.0" prefWidth="144.0" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
+                  <Button fx:id="btnNext" layoutX="258.0" layoutY="1756.0" mnemonicParsing="false" onAction="#toFinish" prefHeight="38.0" prefWidth="144.0" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnBack" layoutX="212.0" layoutY="1793.0" mnemonicParsing="false" onAction="#toMarkets" prefHeight="32.0" prefWidth="236.0" style="-fx-background-color: #bedbff;" text="Вернуться к магазинам" textFill="#012551">
+                  <Button fx:id="btnBack" layoutX="212.0" layoutY="1813.0" mnemonicParsing="false" onAction="#toMarkets" prefHeight="32.0" prefWidth="236.0" style="-fx-background-color: #bedbff;" text="Вернуться к магазинам" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
@@ -363,6 +363,11 @@
                         <Image url="@../../../images/Велик%201.jpg" />
                      </image>
                   </ImageView>
+                  <Label alignment="CENTER" layoutX="127.0" layoutY="1706.0" prefHeight="21.0" prefWidth="406.0" text="Бронировать можно только один велосипед" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="17.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children></AnchorPane>

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<ScrollPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.StartScene">
+<ScrollPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.StartSceneUser">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="700.0">
          <children>
@@ -19,7 +18,7 @@
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Label alignment="CENTER" layoutX="214.0" layoutY="174.0" prefHeight="62.0" prefWidth="232.0" text="КРУТИ" textFill="#012551">
+                  <Label alignment="CENTER" layoutX="133.0" layoutY="172.0" prefHeight="62.0" prefWidth="394.0" text="Пользователь" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="51.0" />
                      </font>
@@ -27,6 +26,11 @@
                   <Button fx:id="btnEntr" layoutX="277.0" layoutY="266.0" mnemonicParsing="false" onAction="#toEntr" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #ff5f00;" text="Войти" textFill="WHITE">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnBack" alignment="CENTER" layoutX="245.0" layoutY="420.0" mnemonicParsing="false" onAction="#toBack" prefHeight="37.0" prefWidth="170.0" style="-fx-background-color: a5ceff;" text="Вернуться назад" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </Button>
                </children>

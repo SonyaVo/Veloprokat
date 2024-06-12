@@ -14,13 +14,16 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class Orders {
-    final String nameFile = "bikes_kashirka.fxml";
+    final String nameFile = "orders.fxml";
 
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
+
+    @FXML
+    private Button btnCancel;
 
     @FXML
     private Button btnBack;
@@ -39,11 +42,21 @@ public class Orders {
         }
     }
 
+
+    @FXML
+    void toCancel(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cancel_order.fxml")));
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 700, 600));
+        stage.show();
+    }
+
     @FXML
     void initialize() {
         assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'orders.fxml'.";
+        assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'orders.fxml'.";
         assert textOrders != null : "fx:id=\"textOrders\" was not injected: check your FXML file 'orders.fxml'.";
 
     }
-
 }

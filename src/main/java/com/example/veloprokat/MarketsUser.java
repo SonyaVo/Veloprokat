@@ -16,8 +16,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 
-public class Markets  {
-    final String nameFile = "markets.fxml";
+public class MarketsUser {
+    final String nameFile = "markets_user.fxml";
     @FXML
     private RadioButton btnKashirskya;
 
@@ -42,7 +42,7 @@ public class Markets  {
     @FXML
     private ToggleGroup marketGroup;
 
-    public Markets(){
+    public MarketsUser(){
         List.add(nameFile);
     }
 
@@ -100,13 +100,13 @@ public class Markets  {
 
     @FXML
     void initialize() {
-        assert btnKashirskya != null : "fx:id=\"btnKashirskya\" was not injected: check your FXML file 'markets.fxml'.";
-        assert btnNext != null : "fx:id=\"btnNext\" was not injected: check your FXML file 'markets.fxml'.";
-        assert btnNikitskya != null : "fx:id=\"btnNikitskya\" was not injected: check your FXML file 'markets.fxml'.";
-        assert btnOrders != null : "fx:id=\"btnOrders\" was not injected: check your FXML file 'markets.fxml'.";
-        assert btnProfile != null : "fx:id=\"btnProfile\" was not injected: check your FXML file 'markets.fxml'.";
-        assert btnSemenovskya != null : "fx:id=\"btnSemenovskya\" was not injected: check your FXML file 'markets.fxml'.";
-        assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'markets.fxml'.";
+        assert btnKashirskya != null : "fx:id=\"btnKashirskya\" was not injected: check your FXML file 'markets_user.fxml'.";
+        assert btnNext != null : "fx:id=\"btnNext\" was not injected: check your FXML file 'markets_user.fxml'.";
+        assert btnNikitskya != null : "fx:id=\"btnNikitskya\" was not injected: check your FXML file 'markets_user.fxml'.";
+        assert btnOrders != null : "fx:id=\"btnOrders\" was not injected: check your FXML file 'markets_user.fxml'.";
+        assert btnProfile != null : "fx:id=\"btnProfile\" was not injected: check your FXML file 'markets_user.fxml'.";
+        assert btnSemenovskya != null : "fx:id=\"btnSemenovskya\" was not injected: check your FXML file 'markets_user.fxml'.";
+        assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'markets_user.fxml'.";
 
         marketGroup = new ToggleGroup();
         btnNikitskya.setToggleGroup(marketGroup);

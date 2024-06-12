@@ -15,8 +15,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class Entry {
-    final String nameFile = "entry.fxml";
+public class EntryAdmin {
+    final String nameFile = "entry_admin.fxml";
     @FXML
     private ResourceBundle resources;
 
@@ -38,7 +38,7 @@ public class Entry {
     @FXML
     private PasswordField password;
 
-    public Entry(){
+    public EntryAdmin(){
         List.add(nameFile);
     }
 
@@ -47,7 +47,7 @@ public class Entry {
     @FXML
     void toBackEntr(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene_admin.fxml")));
         stage.setTitle("dddd");
         stage.setScene(new Scene(root, 700, 600));
         stage.show();
@@ -56,7 +56,7 @@ public class Entry {
     @FXML
     void toMarketsEntr(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnNext.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets_admin.fxml")));
         stage.setTitle("dddd");
         stage.setScene(new Scene(root, 700, 600));
         stage.show();
@@ -64,11 +64,11 @@ public class Entry {
 
     @FXML
     void initialize() {
-        assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'entry.fxml'.";
-        assert btnNext != null : "fx:id=\"btnNext\" was not injected: check your FXML file 'entry.fxml'.";
-        assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'entry.fxml'.";
-        assert login != null : "fx:id=\"login\" was not injected: check your FXML file 'entry.fxml'.";
-        assert password != null : "fx:id=\"password\" was not injected: check your FXML file 'entry.fxml'.";
+        assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'entry_user.fxml'.";
+        assert btnNext != null : "fx:id=\"btnNext\" was not injected: check your FXML file 'entry_user.fxml'.";
+        assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'entry_user.fxml'.";
+        assert login != null : "fx:id=\"login\" was not injected: check your FXML file 'entry_user.fxml'.";
+        assert password != null : "fx:id=\"password\" was not injected: check your FXML file 'entry_user.fxml'.";
 
     }
 

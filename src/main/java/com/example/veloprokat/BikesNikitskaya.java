@@ -283,7 +283,7 @@ public class BikesNikitskaya {
     void toMarkets(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets_user.fxml")));
         stage.setTitle("dddd");
         stage.setScene(new Scene(root, 700, 600));
         stage.show();
@@ -740,7 +740,7 @@ public class BikesNikitskaya {
 //    @FXML
 //    void toMarkets(ActionEvent event) throws IOException {
 //        Stage stage = (Stage) btnBack.getScene().getWindow();
-//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets.fxml")));
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets_user.fxml")));
 //        stage.setTitle("Markets");
 //        stage.setScene(new Scene(root, 600, 400));
 //        stage.show();

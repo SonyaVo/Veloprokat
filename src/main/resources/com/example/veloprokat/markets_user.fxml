@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.Markets">
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.MarketsUser">
    <children>
       <Pane layoutX="20.0" layoutY="20.0" prefHeight="560.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
          <children>
@@ -37,7 +37,7 @@
                   <Font name="DejaVu Sans Mono Bold" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnOrders" layoutX="99.0" layoutY="14.0" mnemonicParsing="false" onAction="#toOrders" style="-fx-background-color: #b0c8e4;" text="Заказы" textFill="#012551">
+            <Button fx:id="btnOrders" layoutX="99.0" layoutY="14.0" mnemonicParsing="false" onAction="#toOrders" style="-fx-background-color: #b0c8e4;" text="Брони" textFill="#012551">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="16.0" />
                </font>

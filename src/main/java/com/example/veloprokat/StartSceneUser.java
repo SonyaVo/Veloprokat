@@ -12,8 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class StartScene  {
-    final String nameFile = "start_scene.fxml";
+public class StartSceneUser {
+    final String nameFile = "start_scene_user.fxml";
 
     @FXML
     private ResourceBundle resources;
@@ -22,19 +22,33 @@ public class StartScene  {
     private URL location;
 
     @FXML
+    private Button btnBack;
+
+    @FXML
     private Button btnEntr;
 
     @FXML
     private Button btnReg;
 
-    public StartScene(){
+
+
+    public StartSceneUser(){
         List.add(nameFile);
+    }
+
+    @FXML
+    void toBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnEntr.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_user_or_admin.fxml")));
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 701, 601));
+        stage.show();
     }
 
     @FXML
     void toEntr(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnEntr.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("entry.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("entry_user.fxml")));
         stage.setTitle("dddd");
         stage.setScene(new Scene(root, 701, 601));
         stage.show();
@@ -51,9 +65,11 @@ public class StartScene  {
     }
 
     @FXML
+
     void initialize() {
-        assert btnEntr != null : "fx:id=\"btnEntr\" was not injected: check your FXML file 'start_scene.fxml'.";
-        assert btnReg != null : "fx:id=\"btnReg\" was not injected: check your FXML file 'start_scene.fxml'.";
+        assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'start_scene_user.fxml'.";
+        assert btnEntr != null : "fx:id=\"btnEntr\" was not injected: check your FXML file 'start_scene_user.fxml'.";
+        assert btnReg != null : "fx:id=\"btnReg\" was not injected: check your FXML file 'start_scene_user.fxml'.";
 
     }
 
@@ -107,7 +123,7 @@ public class StartScene  {
 //        Stage stage = (Stage) btnEntr.getScene().getWindow();
 //        stage.close();
 //        Stage p = new Stage();
-//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("entry.fxml")));
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("entry_user.fxml")));
 //        p.setTitle("dddd");
 //        p.setScene(new Scene(root, 600, 400));
 //        p.show();
@@ -115,8 +131,8 @@ public class StartScene  {
 //    }
 //    @FXML
 //    void initialize() {
-//        assert btnEntr != null : "fx:id=\"btnEntr\" was not injected: check your FXML file 'start_scene.fxml'.";
-//        assert btnReg != null : "fx:id=\"btnReg\" was not injected: check your FXML file 'start_scene.fxml'.";
+//        assert btnEntr != null : "fx:id=\"btnEntr\" was not injected: check your FXML file 'start_scene_user.fxml'.";
+//        assert btnReg != null : "fx:id=\"btnReg\" was not injected: check your FXML file 'start_scene_user.fxml'.";
 //
 //    }
 //

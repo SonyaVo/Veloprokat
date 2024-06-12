@@ -25,9 +25,14 @@
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnBack" layoutX="236.0" layoutY="444.0" mnemonicParsing="false" onAction="#toBack" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #ff5f00;" text="Вернуться назад" textFill="WHITE">
+                  <Button fx:id="btnBack" layoutX="236.0" layoutY="467.0" mnemonicParsing="false" onAction="#toBack" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #ff5f00;" text="Вернуться назад" textFill="WHITE">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnCancel" layoutX="236.0" layoutY="410.0" mnemonicParsing="false" onAction="#toCancel" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #bedbff;" text="Отменить бронь" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="19.0" />
                      </font>
                   </Button>
                </children>

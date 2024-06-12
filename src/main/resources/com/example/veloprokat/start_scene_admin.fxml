@@ -7,23 +7,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.StartUserOrAdmin">
+<ScrollPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.StartSceneAdmin">
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="700.0">
             <children>
                 <Pane layoutX="20.0" layoutY="20.0" prefHeight="560.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
                     <children>
-                        <Button fx:id="btnAdmin" layoutX="240.0" layoutY="341.0" mnemonicParsing="false" onAction="#toAdmin" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #bedbff;" text="Администратор" textFill="#012551">
+                        <Button fx:id="btnBack" layoutX="241.0" layoutY="341.0" mnemonicParsing="false" onAction="#toBack" prefHeight="45.0" prefWidth="178.0" style="-fx-background-color: #bedbff;" text="Вернуться назад" textFill="#012551">
                             <font>
-                                <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                                <Font name="DejaVu Sans Mono Bold" size="16.0" />
                             </font>
                         </Button>
-                        <Label alignment="CENTER" layoutX="214.0" layoutY="174.0" prefHeight="62.0" prefWidth="232.0" text="КРУТИ" textFill="#012551">
+                        <Label alignment="CENTER" layoutX="117.0" layoutY="172.0" prefHeight="62.0" prefWidth="426.0" text="Администратор" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="51.0" />
                             </font>
                         </Label>
-                        <Button fx:id="btnUser" alignment="CENTER" layoutX="240.0" layoutY="266.0" mnemonicParsing="false" onAction="#toUser" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #ff5f00;" text="Пользователь" textFill="WHITE">
+                        <Button fx:id="btnEntr" layoutX="277.0" layoutY="266.0" mnemonicParsing="false" onAction="#toEntr" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #ff5f00;" text="Войти" textFill="WHITE">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="20.0" />
                             </font>

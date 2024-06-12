@@ -121,7 +121,7 @@
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnOrders" alignment="CENTER" layoutX="99.0" layoutY="14.0" mnemonicParsing="false" onAction="#toOrders" style="-fx-background-color: #b0c8e4;" text="Заказы" textFill="#012551">
+                  <Button fx:id="btnOrders" alignment="CENTER" layoutX="99.0" layoutY="14.0" mnemonicParsing="false" onAction="#toOrders" style="-fx-background-color: #b0c8e4;" text="Брони" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>

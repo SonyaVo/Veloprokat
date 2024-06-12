@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.BikesAdmin">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="800.0">
+            <children>
+                <Pane layoutX="20.0" layoutY="20.0" prefHeight="860.0" prefWidth="760.0" style="-fx-background-color: ffe0d1;">
+                    <children>
+                        <Label alignment="CENTER" layoutX="246.0" layoutY="63.0" prefHeight="31.0" prefWidth="268.0" style="-fx-background-color: ffffff;" text="Велосипеды" textFill="#012551">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="booking" layoutX="20.0" layoutY="109.0" prefHeight="575.0" prefWidth="720.0">
+                            <columns>
+                                <TableColumn prefWidth="70.0" text="№" />
+                                <TableColumn prefWidth="220.8000030517578" text="Модель" />
+                                <TableColumn prefWidth="144.0" text="Количество передач" />
+                        <TableColumn prefWidth="140.79998779296875" text="Количество" />
+                        <TableColumn prefWidth="144.79998779296875" text="Магазин" />
+                            </columns>
+                        </TableView>
+                        <Button fx:id="btnBack" layoutX="271.0" layoutY="745.0" mnemonicParsing="false" onAction="#toBack" prefHeight="38.0" prefWidth="219.0" style="-fx-background-color: #ff5f00;" text="Вернуться назад" textFill="WHITE">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnClients" alignment="CENTER" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#toClients" style="-fx-background-color: #b0c8e4;" text="Клиенты" textFill="#012551">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnMarkets" alignment="CENTER" layoutX="98.0" layoutY="14.0" mnemonicParsing="false" onAction="#toMarkets" style="-fx-background-color: #b0c8e4;" text="Магазины" textFill="#012551">
+                            <font>
+                                <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </Pane>
+            </children></AnchorPane>
+    </content>
+</ScrollPane>

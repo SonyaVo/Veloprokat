@@ -64,7 +64,7 @@ public class Registration {
     @FXML
     void toBack(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene_user.fxml")));
         stage.setTitle("dddd");
         stage.setScene(new Scene(root, 700, 600));
         stage.show();
@@ -113,7 +113,7 @@ public class Registration {
                 errorText.setText("");
                 if (agree.isSelected()) {
                     Stage stage = (Stage) btnNext.getScene().getWindow();
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene.fxml")));
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene_user.fxml")));
                     stage.setTitle("dddd");
                     stage.setScene(new Scene(root, 700, 600));
                     stage.show();

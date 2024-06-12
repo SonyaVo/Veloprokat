@@ -28,11 +28,6 @@ public class Result {
     @FXML
     private Button btnBook;
 
-    @FXML
-    private Button btnOrders;
-
-    @FXML
-    private Button btnProfile;
 
     @FXML
     private Button btnBack;
@@ -76,30 +71,12 @@ public class Result {
         }
     }
 
-    @FXML
-    void toOrders(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("orders.fxml")));
-        stage.setTitle("Profile");
-        stage.setScene(new Scene(root, 700, 600));
-        stage.show();
-    }
 
-    @FXML
-    void toProfile(ActionEvent event) throws IOException {
-        // Load the profile.fxml and switch to the new scene
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profile.fxml")));
-        stage.setTitle("Profile");
-        stage.setScene(new Scene(root, 700, 600));
-        stage.show();
-    }
+
 
     @FXML
     void initialize() {
         assert btnBook != null : "fx:id=\"btnBook\" was not injected: check your FXML file 'result.fxml'.";
-        assert btnOrders != null : "fx:id=\"btnOrders\" was not injected: check your FXML file 'result.fxml'.";
-        assert btnProfile != null : "fx:id=\"btnProfile\" was not injected: check your FXML file 'result.fxml'.";
         assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'result.fxml'.";
         assert numberBook != null : "fx:id=\"numberBook\" was not injected: check your FXML file 'result.fxml'.";
         assert res != null : "fx:id=\"res\" was not injected: check your FXML file 'result.fxml'.";

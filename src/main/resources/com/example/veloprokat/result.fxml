@@ -25,7 +25,7 @@
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="240.0" layoutY="62.0" prefHeight="30.0" prefWidth="180.0" text="БРОНИОРВАНИЕ" textFill="#012551">
+                  <Label alignment="CENTER" layoutX="240.0" layoutY="62.0" prefHeight="30.0" prefWidth="180.0" text="БРОНИРОВАНИЕ" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="24.0" />
                      </font>
@@ -45,17 +45,7 @@
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnProfile" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#toProfile" style="-fx-background-color: #bedbff;" text="Профиль" textFill="#012551">
-                     <font>
-                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
-                     </font>
-                  </Button>
                   <Button fx:id="btnBack" layoutX="226.0" layoutY="437.0" mnemonicParsing="false" onAction="#toMarkets" prefHeight="31.0" prefWidth="208.0" style="-fx-background-color: #bedbff;" text="Вернуться в магазин" textFill="#012551">
-                     <font>
-                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnOrders" layoutX="99.0" layoutY="14.0" mnemonicParsing="false" onAction="#toOrders" style="-fx-background-color: #bedbff;" text="Заказы" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>

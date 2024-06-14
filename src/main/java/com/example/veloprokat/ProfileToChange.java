@@ -25,19 +25,30 @@ public class ProfileToChange   {
     @FXML
     private TextField adress;
 
+
+
     @FXML
     private Button btnSave;
 
     @FXML
-    private TextField name;
+    private TextField firstName;
 
     @FXML
     private TextField passport;
 
     @FXML
+    private TextField patronymic;
+
+    @FXML
     private TextField phone;
 
-    private static String varName;
+    @FXML
+    private TextField secondName;
+
+
+    private static String varFirstName;
+    private static String varSecondName;
+    private static String varPatronymic;
     private static String varPhone;
     private static String varPassport;
     private static String varAdress;
@@ -50,6 +61,7 @@ public class ProfileToChange   {
     }
 
 
+
     @FXML
     void toSave(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnSave.getScene().getWindow();
@@ -58,6 +70,19 @@ public class ProfileToChange   {
         stage.setScene(new Scene(root, 700, 600));
         stage.show();
     }
+
+    public static String getVarFirstName() {
+        return varFirstName;
+    }
+
+    public static String getVarSecondName() {
+        return varSecondName;
+    }
+
+    public static String getVarPatronymic() {
+        return varPatronymic;
+    }
+
     public static String getVarAdress() {
         return varAdress;
     }
@@ -66,9 +91,6 @@ public class ProfileToChange   {
         return varPassport;
     }
 
-    public static String getVarName() {
-        return varName;
-    }
 
     public static String getVarPhone() {
         return varPhone;
@@ -77,17 +99,25 @@ public class ProfileToChange   {
     @FXML
     void initialize() {
         assert adress != null : "fx:id=\"adress\" was not injected: check your FXML file 'profile_to_change.fxml'.";
-        assert btnSave != null : "fx:id=\"btnSave\" was not injected: check your FXML file 'profile_to_change.fxml'.";
-        assert name != null : "fx:id=\"name\" was not injected: check your FXML file 'profile_to_change.fxml'.";
-        assert passport != null : "fx:id=\"passport\" was not injected: check your FXML file 'profile_to_change.fxml'.";
-        assert phone != null : "fx:id=\"phone\" was not injected: check your FXML file 'profile_to_change.fxml'.";
 
-        varName = Profile.getVarName();
+        assert btnSave != null : "fx:id=\"btnChange\" was not injected: check your FXML file 'profile_to_change.fxml'.";
+        assert firstName != null : "fx:id=\"firstName\" was not injected: check your FXML file 'profile_to_change.fxml'.";
+        assert passport != null : "fx:id=\"passport\" was not injected: check your FXML file 'profile_to_change.fxml'.";
+        assert patronymic != null : "fx:id=\"patronymic\" was not injected: check your FXML file 'profile_to_change.fxml'.";
+        assert phone != null : "fx:id=\"phone\" was not injected: check your FXML file 'profile_to_change.fxml'.";
+        assert secondName != null : "fx:id=\"secondName\" was not injected: check your FXML file 'profile_to_change.fxml'.";
+
+        varFirstName = Profile.getVarFirstName();
+        varSecondName = Profile.getVarSecondName();
+        varPatronymic = Profile.getVarPatronymic();
+
         varPassport = Profile.getVarPassport();
         varPhone = Profile.getVarPhone();
         varAdress = Profile.getVarAdress();
 
-        name.setText(varName);
+        firstName.setText(varFirstName);
+        secondName.setText(varSecondName);
+        patronymic.setText(varPatronymic);
         passport.setText(varPassport);
         phone.setText(varPhone);
         adress.setText(varAdress);

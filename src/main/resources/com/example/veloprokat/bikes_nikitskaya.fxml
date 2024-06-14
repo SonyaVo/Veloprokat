@@ -294,7 +294,7 @@
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="33.0" layoutY="55.0" prefHeight="15.0" prefWidth="114.0" text="3 часа - 600 руб." textFill="#012551">
+                        <Label alignment="CENTER" layoutX="33.0" layoutY="55.0" prefHeight="15.0" prefWidth="114.0" text="3 дня - 600 руб." textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="11.0" />
                            </font>
@@ -304,7 +304,7 @@
                               <Font name="DejaVu Sans Mono Bold" size="11.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="37.0" layoutY="30.0" prefHeight="15.0" prefWidth="106.0" text="1 час - 200 руб." textAlignment="CENTER" textFill="#012551" wrapText="true">
+                        <Label alignment="CENTER" layoutX="33.0" layoutY="30.0" prefHeight="15.0" prefWidth="115.0" text="1 день - 200 руб." textAlignment="CENTER" textFill="#012551" wrapText="true">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="11.0" />
                            </font>
@@ -318,12 +318,12 @@
                               <Font name="DejaVu Sans Mono Bold" size="11.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="33.0" layoutY="55.0" prefHeight="15.0" prefWidth="114.0" text="3 часа - 900 руб." textFill="#012551">
+                        <Label alignment="CENTER" layoutX="33.0" layoutY="55.0" prefHeight="15.0" prefWidth="114.0" text="3 дня - 900 руб." textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="11.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="37.0" layoutY="30.0" prefHeight="15.0" prefWidth="106.0" text="1 час - 300 руб." textAlignment="CENTER" textFill="#012551" wrapText="true">
+                        <Label alignment="CENTER" layoutX="34.0" layoutY="30.0" prefHeight="15.0" prefWidth="113.0" text="1 день - 300 руб." textAlignment="CENTER" textFill="#012551" wrapText="true">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="11.0" />
                            </font>
@@ -342,12 +342,12 @@
                               <Font name="DejaVu Sans Mono Bold" size="11.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="37.0" layoutY="30.0" prefHeight="15.0" prefWidth="106.0" text="1 час - 400 руб." textAlignment="CENTER" textFill="#012551" wrapText="true">
+                        <Label alignment="CENTER" layoutX="33.0" layoutY="30.0" prefHeight="15.0" prefWidth="114.0" text="1 день - 400 руб." textAlignment="CENTER" textFill="#012551" wrapText="true">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="11.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="30.0" layoutY="55.0" prefHeight="15.0" prefWidth="120.0" text="3 часа - 1200 руб." textFill="#012551">
+                        <Label alignment="CENTER" layoutX="30.0" layoutY="55.0" prefHeight="15.0" prefWidth="120.0" text="3 дня - 1200 руб." textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="11.0" />
                            </font>

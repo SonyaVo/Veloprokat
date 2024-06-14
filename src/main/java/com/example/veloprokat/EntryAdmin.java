@@ -56,7 +56,7 @@ public class EntryAdmin {
     @FXML
     void toMarketsEntr(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnNext.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets_admin.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("choice_admin.fxml")));
         stage.setTitle("dddd");
         stage.setScene(new Scene(root, 700, 600));
         stage.show();

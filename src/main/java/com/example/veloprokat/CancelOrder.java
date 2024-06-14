@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 public class CancelOrder {
 
-    final String nameFile = "orders.fxml";
+    final String nameFile = "cancel_order.fxml";
     @FXML
     private ResourceBundle resources;
 
@@ -30,14 +30,23 @@ public class CancelOrder {
 
     @FXML
     private Label textOrders;
+    public CancelOrder(){
+        List.add(nameFile);
+    }
+
+    public String getNameFile() {
+        return nameFile;
+    }
 
     @FXML
     void toBack(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("orders.fxml")));
-        stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 700, 600));
-        stage.show();
+        if (!List.list.isEmpty()) {
+            Stage stage = (Stage) btnBack.getScene().getWindow();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(List.get(List.list.size() - 2))));
+            stage.setTitle("");
+            stage.setScene(new Scene(root, 700, 600));
+            stage.show();
+        }
     }
 
     @FXML
@@ -46,7 +55,7 @@ public class CancelOrder {
         // ДОПИСАТЬ УДАЛЕНИЕ БРОНИ
 
         Stage stage = (Stage) btnBack.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("orders.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(".fxml")));
         stage.setTitle("dddd");
         stage.setScene(new Scene(root, 700, 600));
         stage.show();

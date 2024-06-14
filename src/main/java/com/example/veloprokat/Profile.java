@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 public class Profile {
     final String nameFile = "profile.fxml";
 
+
     @FXML
     private ResourceBundle resources;
 
@@ -32,15 +33,23 @@ public class Profile {
     private Button btnChange;
 
     @FXML
-    private Label name;
+    private Label firstName;
 
     @FXML
     private Label passport;
 
     @FXML
+    private Label patronymic;
+
+    @FXML
     private Label phone;
 
-    private static String varName;
+    @FXML
+    private Label secondName;
+
+    private static String varFirstName;
+    private static String varSecondName;
+    private static String varPatronymic;
     private static String varPhone;
     private static String varPassport;
     private static String varAdress;
@@ -49,6 +58,7 @@ public class Profile {
         //List.add(nameFile);
 
     }
+
 
     @FXML
     void toBack(ActionEvent event) throws IOException {
@@ -72,16 +82,24 @@ public class Profile {
 
     }
 
+    public static String getVarFirstName() {
+        return varFirstName;
+    }
+
+    public static String getVarSecondName() {
+        return varSecondName;
+    }
+
+    public static String getVarPatronymic() {
+        return varPatronymic;
+    }
+
     public static String getVarAdress() {
         return varAdress;
     }
 
     public static String getVarPassport() {
         return varPassport;
-    }
-
-    public static String getVarName() {
-        return varName;
     }
 
     public static String getVarPhone() {
@@ -93,16 +111,22 @@ public class Profile {
         assert adress != null : "fx:id=\"adress\" was not injected: check your FXML file 'profile.fxml'.";
         assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'profile.fxml'.";
         assert btnChange != null : "fx:id=\"btnChange\" was not injected: check your FXML file 'profile.fxml'.";
-        assert name != null : "fx:id=\"name\" was not injected: check your FXML file 'profile.fxml'.";
+        assert firstName != null : "fx:id=\"firstName\" was not injected: check your FXML file 'profile.fxml'.";
         assert passport != null : "fx:id=\"passport\" was not injected: check your FXML file 'profile.fxml'.";
+        assert patronymic != null : "fx:id=\"patronomyc\" was not injected: check your FXML file 'profile.fxml'.";
         assert phone != null : "fx:id=\"phone\" was not injected: check your FXML file 'profile.fxml'.";
+        assert secondName != null : "fx:id=\"secondName\" was not injected: check your FXML file 'profile.fxml'.";
 
-        varName = Registration.getVarName();
+        varFirstName = Registration.getVarFirstName();
+        varSecondName = Registration.getVarSecondName();
+        varPatronymic = Registration.getVarPatronymic();
         varPassport = Registration.getVarPassport();
         varPhone = Registration.getVarPhone();
         varAdress = Registration.getVarAdress();
 
-        name.setText(varName);
+        firstName.setText(varFirstName);
+        secondName.setText(varSecondName);
+        patronymic.setText(varPatronymic);
         passport.setText(varPassport);
         phone.setText(varPhone);
         adress.setText(varAdress);

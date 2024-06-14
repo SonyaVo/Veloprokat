@@ -55,11 +55,26 @@ public class EntryUser {
 
     @FXML
     void toMarketsEntr(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnNext.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets_user.fxml")));
-        stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 700, 600));
-        stage.show();
+        if (!login.getText().isEmpty() && !password.getText().isEmpty()) {
+            IsUsers_SQL sql = new IsUsers_SQL();
+            String flag = sql.isUsers(login.getText(), password.getText());
+
+            if (flag.equals("существует")) {
+                Stage stage = (Stage) btnNext.getScene().getWindow();
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("markets_user.fxml")));
+                stage.setTitle("dddd");
+                stage.setScene(new Scene(root, 700, 600));
+                stage.show();
+            }
+            else
+                errorText.setText(flag);
+
+
+
+        }
+        else {
+            errorText.setText("заполните все поля");
+        }
     }
 
     @FXML

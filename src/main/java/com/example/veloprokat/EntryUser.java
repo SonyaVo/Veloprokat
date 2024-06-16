@@ -38,6 +38,9 @@ public class EntryUser {
     @FXML
     private PasswordField password;
 
+    private static String varLogin;
+    private static String varPassword;
+
     public EntryUser(){
         List.add(nameFile);
     }
@@ -55,9 +58,11 @@ public class EntryUser {
 
     @FXML
     void toMarketsEntr(ActionEvent event) throws IOException {
+        varLogin = login.getText();
+        varPassword = password.getText();
         if (!login.getText().isEmpty() && !password.getText().isEmpty()) {
-            IsUsers_SQL sql = new IsUsers_SQL();
-            String flag = sql.isUsers(login.getText(), password.getText());
+            Users_SQL users = new Users_SQL();
+            String flag = users.isUsers(login.getText(), password.getText());
 
             if (flag.equals("существует")) {
                 Stage stage = (Stage) btnNext.getScene().getWindow();
@@ -65,6 +70,9 @@ public class EntryUser {
                 stage.setTitle("dddd");
                 stage.setScene(new Scene(root, 700, 600));
                 stage.show();
+            }
+            if (flag.equals("не существует")) {
+                errorText.setText("логин введен неправильно");
             }
             else
                 errorText.setText(flag);
@@ -75,6 +83,10 @@ public class EntryUser {
         else {
             errorText.setText("заполните все поля");
         }
+    }
+
+    public static String getLogin() {
+        return varLogin;
     }
 
     @FXML

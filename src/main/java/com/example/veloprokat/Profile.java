@@ -47,19 +47,32 @@ public class Profile {
     @FXML
     private Label secondName;
 
+    @FXML
+    private Button btnOut;
+
     private static String varFirstName;
     private static String varSecondName;
     private static String varPatronymic;
     private static String varPhone;
     private static String varPassport;
     private static String varAdress;
+    private static String user[] = new String[6];
 
     public Profile(){
-        //List.add(nameFile);
+        Users_SQL sql = new Users_SQL();
+        user = sql.getUser(EntryUser.getLogin());
 
+        //List.add(nameFile);
     }
 
-
+    @FXML
+    void toOut(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnBack.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_user_or_admin.fxml")));
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 700, 600));
+        stage.show();
+    }
     @FXML
     void toBack(ActionEvent event) throws IOException {
         if (!List.list.isEmpty()) {
@@ -81,6 +94,8 @@ public class Profile {
         stage.show();
 
     }
+
+
 
     public static String getVarFirstName() {
         return varFirstName;
@@ -106,6 +121,10 @@ public class Profile {
         return varPhone;
     }
 
+    public static String getId(){
+        return user[0];
+    }
+
     @FXML
     void initialize() {
         assert adress != null : "fx:id=\"adress\" was not injected: check your FXML file 'profile.fxml'.";
@@ -117,12 +136,13 @@ public class Profile {
         assert phone != null : "fx:id=\"phone\" was not injected: check your FXML file 'profile.fxml'.";
         assert secondName != null : "fx:id=\"secondName\" was not injected: check your FXML file 'profile.fxml'.";
 
-        varFirstName = Registration.getVarFirstName();
-        varSecondName = Registration.getVarSecondName();
-        varPatronymic = Registration.getVarPatronymic();
-        varPassport = Registration.getVarPassport();
-        varPhone = Registration.getVarPhone();
-        varAdress = Registration.getVarAdress();
+
+       varFirstName = user[1];
+        varSecondName = user[2];
+        varPatronymic = user[3];
+        varPassport = user[4];
+        varPhone = EntryUser.getLogin();
+        varAdress = user[5];
 
         firstName.setText(varFirstName);
         secondName.setText(varSecondName);

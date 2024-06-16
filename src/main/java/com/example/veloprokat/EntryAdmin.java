@@ -23,6 +23,7 @@ public class EntryAdmin {
     @FXML
     private URL location;
 
+
     @FXML
     private Button btnBack;
 
@@ -44,6 +45,7 @@ public class EntryAdmin {
 
 
 
+
     @FXML
     void toBackEntr(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnBack.getScene().getWindow();
@@ -54,12 +56,21 @@ public class EntryAdmin {
     }
 
     @FXML
-    void toMarketsEntr(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnNext.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("choice_admin.fxml")));
-        stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 700, 600));
-        stage.show();
+    void toEntr(ActionEvent event) throws IOException {
+        if (login.getText().isEmpty() | password.getText().isEmpty()){
+            errorText.setText("не все поля заполнены");
+        }
+        else {
+            if (login.getText().equals("admin") & password.getText().equals("admin")) {
+                Stage stage = (Stage) btnNext.getScene().getWindow();
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("choice_admin.fxml")));
+                stage.setTitle("dddd");
+                stage.setScene(new Scene(root, 700, 600));
+                stage.show();
+            } else {
+                errorText.setText("неправильный логин или пароль");
+            }
+        }
     }
 
     @FXML

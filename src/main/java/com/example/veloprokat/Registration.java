@@ -157,11 +157,16 @@ public class Registration {
 
         if (errorText.getText().isEmpty() && errorTextPassport.getText().isEmpty() && errorTextPhone.getText().isEmpty() && errorTextFirstName.getText().isEmpty() && errorTextSecondName.getText().isEmpty() && errorTextPatronymic.getText().isEmpty()) {
             if (agree.isSelected()) {
-                Stage stage = (Stage) btnNext.getScene().getWindow();
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene_user.fxml")));
-                stage.setTitle("dddd");
-                stage.setScene(new Scene(root, 700, 600));
-                stage.show();
+
+                Users_SQL users = new Users_SQL();
+                boolean flag = users.addUser(varFirstName,varSecondName,varPatronymic,varPhone,varPassport,varAdress,varPassword);
+                if(flag) {
+                    Stage stage = (Stage) btnNext.getScene().getWindow();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene_user.fxml")));
+                    stage.setTitle("dddd");
+                    stage.setScene(new Scene(root, 700, 600));
+                    stage.show();
+                }
             } else {
                 agree.setStyle("-fx-text-fill: red;");
             }

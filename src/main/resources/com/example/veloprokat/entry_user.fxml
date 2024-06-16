@@ -20,7 +20,7 @@
                         <Font name="DejaVu Sans Mono Bold" size="28.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="login" layoutX="231.0" layoutY="226.0" prefHeight="30.0" prefWidth="200.0" promptText="Логин(телефон)">
+                  <TextField fx:id="login" layoutX="230.0" layoutY="226.0" prefHeight="30.0" prefWidth="200.0" promptText="Логин(телефон)">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="14.0" />
                      </font>

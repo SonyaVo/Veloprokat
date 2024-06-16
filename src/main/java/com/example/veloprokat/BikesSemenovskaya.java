@@ -2,6 +2,8 @@ package com.example.veloprokat;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -26,24 +28,26 @@ public class BikesSemenovskaya  {
 
     @FXML
     private ScrollPane scrollPane;
+    @FXML
+    private Label errorText;
 
     @FXML
-    private RadioButton btn1HourAddict;
+    private RadioButton btn1DayAddict;
 
     @FXML
-    private RadioButton btn1HourAltair;
+    private RadioButton btn1DayAltair;
 
     @FXML
-    private RadioButton btn1HourFormat;
+    private RadioButton btn1DayFormat;
 
     @FXML
-    private RadioButton btn1HourMaxit;
+    private RadioButton btn1DayMaxit;
 
     @FXML
-    private RadioButton btn1HourTwister;
+    private RadioButton btn1DayTwister;
 
     @FXML
-    private RadioButton btn1HourWelt;
+    private RadioButton btn1DayWelt;
 
     @FXML
     private RadioButton btn1WeekAddict;
@@ -64,22 +68,22 @@ public class BikesSemenovskaya  {
     private RadioButton btn1WeekWelt;
 
     @FXML
-    private RadioButton btn3HourAddict;
+    private RadioButton btn3DayAddict;
 
     @FXML
-    private RadioButton btn3HourAltair;
+    private RadioButton btn3DayAltair;
 
     @FXML
-    private RadioButton btn3HourFormat;
+    private RadioButton btn3DayFormat;
 
     @FXML
-    private RadioButton btn3HourMaxit;
+    private RadioButton btn3DayMaxit;
 
     @FXML
-    private RadioButton btn3HourTwister;
+    private RadioButton btn3DayTwister;
 
     @FXML
-    private RadioButton btn3HourWelt;
+    private RadioButton btn3DayWelt;
 
     @FXML
     private RadioButton btnAddict;
@@ -150,15 +154,97 @@ public class BikesSemenovskaya  {
     private ToggleGroup groupAddict;
     @FXML
     private ToggleGroup groupBikes;
-    private static String choice = "";
+    private static String[] choice= new String[3];;
+    private Bikes_SQL bikes;
 
     public BikesSemenovskaya(){
+
         List.add(nameFile);
+        bikes = new Bikes_SQL();
     }
 
 
     public String getNameFile() {
         return nameFile;
+    }
+
+    @FXML
+    void toDate(ActionEvent event) {
+        errorTextFromat.setText("");
+        errorTextWelt.setText("");
+        errorTextAddict.setText("");
+        errorTextAltair.setText("");
+        errorTextTwister.setText("");
+        errorTextMaxit.setText("");
+
+        btn1DayAddict.setDisable(false);
+        btn3DayAddict.setDisable(false);
+        btn1WeekAddict.setDisable(false);
+        btn1DayAltair.setDisable(false);
+        btn3DayAltair.setDisable(false);
+        btn1WeekAltair.setDisable(false);
+        btn1DayFormat.setDisable(false);
+        btn3DayFormat.setDisable(false);
+        btn1WeekFormat.setDisable(false);
+        btn1DayMaxit.setDisable(false);
+        btn3DayMaxit.setDisable(false);
+        btn1WeekMaxit.setDisable(false);
+        btn1DayWelt.setDisable(false);
+        btn3DayWelt.setDisable(false);
+        btn1WeekWelt.setDisable(false);
+        btn1DayTwister.setDisable(false);
+        btn3DayTwister.setDisable(false);
+        btn1WeekTwister.setDisable(false);
+        btnTwister.setDisable(false);
+        btnAddict.setDisable(false);
+        btnAltair.setDisable(false);
+        btnFormat.setDisable(false);
+        btnMaxit.setDisable(false);
+        btnWelt.setDisable(false);
+        LocalDate selectedDate = date.getValue();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String date_format = selectedDate.format(formatter);
+
+
+        if(!bikes.inStock("MAXIT D060",3, date_format)){
+            errorTextMaxit.setText("нет в наличии");
+            btnMaxit.setDisable(true);
+            btn1DayMaxit.setDisable(true);
+            btn3DayMaxit.setDisable(true);
+            btn1WeekMaxit.setDisable(true);
+        }
+        if(!bikes.inStock("FORMAT 7733",3, date_format)){
+            errorTextFromat.setText("нет в наличии");
+            btnFormat.setDisable(true);
+            btn1DayFormat.setDisable(true);
+            btn3DayFormat.setDisable(true);
+            btn1WeekFormat.setDisable(true);
+        } if(!bikes.inStock("WELT R90",3, date_format)){
+            errorTextWelt.setText("нет в наличии");
+            btnWelt.setDisable(true);
+            btn1DayWelt.setDisable(true);
+            btn3DayWelt.setDisable(true);
+            btn1WeekWelt.setDisable(true);
+        } if(!bikes.inStock("ADDICT RC15",3, date_format)){
+            errorTextAddict.setText("нет в наличии");
+            btnAddict.setDisable(true);
+            btn1DayAddict.setDisable(true);
+            btn3DayAddict.setDisable(true);
+            btn1WeekAddict.setDisable(true);
+        } if(!bikes.inStock("ALTAIR AL29D",3, date_format)){
+            errorTextAltair.setText("нет в наличии");
+            btnAltair.setDisable(true);
+            btn1DayAltair.setDisable(true);
+            btn3DayAltair.setDisable(true);
+            btn1WeekAltair.setDisable(true);
+        } if(!bikes.inStock("TWISTER 26",3, date_format)){
+            errorTextTwister.setText("нет в наличии");
+            btnTwister.setDisable(true);
+            btn1DayTwister.setDisable(true);
+            btn3DayTwister.setDisable(true);
+            btn1WeekTwister.setDisable(true);
+        }
+
     }
 
     @FXML
@@ -171,92 +257,111 @@ public class BikesSemenovskaya  {
         stage.show();
     }
 
+
+
     @FXML
     void toFinish(ActionEvent event) throws IOException {
 
+        choice[0] = date.getValue() +"";
         if (btnAddict.isSelected()){
-            if (btn1HourAddict.isSelected()){
-                choice = "Addict 1Hour";
+            if (btn1DayAddict.isSelected()){
+                choice[1] = "ADDICT RC15";
+                choice[2] = "1";
             }
-            if(btn3HourAddict.isSelected()){
-                choice = "Addict 3Hour";
+            if(btn3DayAddict.isSelected()){
+                choice[1] = "ADDICT RC15";
+                choice[2] = "3";
 
             }
             if (btn1WeekAddict.isSelected()){
-                choice = "Addict 1Week";
+                choice[1] = "ADDICT RC15";
+                choice[2] = "7";
 
             }
         }
 
         if (btnAltair.isSelected()){
-            if (btn1HourAltair.isSelected()){
-                choice = "Altair 1Hour";
+            if (btn1DayAltair.isSelected()){
+                choice[1] = "ALTAIR AL29D";
+                choice[2] = "1";
             }
-            if(btn3HourAltair.isSelected()){
-                choice = "Altair 3Hour";
+            if(btn3DayAltair.isSelected()){
+                choice[1] = "ALTAIR AL29D";
+                choice[2] = "3";
 
             }
             if (btn1WeekAltair.isSelected()){
-                choice = "Altair 1Week";
+                choice[1] = "ALTAIR AL29D";
+                choice[2] = "7";
 
             }
         }
 
         if (btnFormat.isSelected()){
-            if (btn1HourFormat.isSelected()){
-                choice = "Format 1Hour";
+            if (btn1DayFormat.isSelected()){
+                choice[1] = "FORMAT 7733";
+                choice[2] = "1";
             }
-            if(btn3HourFormat.isSelected()){
-                choice = "Format 3Hour";
+            if(btn3DayFormat.isSelected()){
+                choice[1] = "FORMAT 7733";
+                choice[2] = "3";
 
             }
             if (btn1WeekFormat.isSelected()){
-                choice = "Format 1Week";
+                choice[1] = "FORMAT 7733";
+                choice[2] = "7";
 
             }
         }
 
         if (btnMaxit.isSelected()){
-            if (btn1HourMaxit.isSelected()){
-                choice = "Maxit 1Hour";
+            if (btn1DayMaxit.isSelected()){
+                choice[1] = "MAXIT D060";
+                choice[2] = "1";
             }
-            if(btn3HourMaxit.isSelected()){
-                choice = "Maxit 3Hour";
+            if(btn3DayMaxit.isSelected()){
+                choice[1] = "MAXIT D060";
+                choice[2] = "3";
 
             }
             if (btn1WeekMaxit.isSelected()){
-                choice = "Maxit 1Week";
+                choice[1] = "MAXIT D060";
+                choice[2] = "7";
 
             }
         }
 
         if (btnTwister.isSelected()){
-            if (btn1HourTwister.isSelected()){
-                choice = "Twister 1Hour";
-            }
-            if(btn3HourTwister.isSelected()){
-                choice = "Twister 3Hour";
-
+            if (btn1DayTwister.isSelected()){
+                choice[1] = "TWISTER 26";
+                choice[2] = "1";            }
+            if(btn3DayTwister.isSelected()){
+                choice[1] = "TWISTER 26";
+                choice[2] = "3";
             }
             if (btn1WeekTwister.isSelected()){
-                choice = "Twister 1Week";
-
+                choice[1] = "TWISTER 26";
+                choice[2] = "7";
             }
         }
 
         if (btnWelt.isSelected()){
-            if (btn1HourWelt.isSelected()){
-                choice = "Welt 1Hour";
+            if (btn1DayWelt.isSelected()){
+                choice[1] = "WELT R90";
+                choice[2] = "1";
             }
-            if(btn3HourWelt.isSelected()){
-                choice = "Welt 3Hour";
+            if(btn3DayWelt.isSelected()){
+                choice[1] = "WELT R90";
+                choice[2] = "3";
 
             }
             if (btn1WeekWelt.isSelected()){
-                choice = "Welt 1Week";
+                choice[1] = "WELT R90";
+                choice[2] = "7";
 
             }
         }
+
 
         Stage stage = (Stage) btnNext.getScene().getWindow();
 
@@ -287,31 +392,31 @@ public class BikesSemenovskaya  {
         stage.show();
     }
 
-    public static String getChoice() {
+    public static String[] getChoice() {
         return choice;
     }
 
     @FXML
     void initialize() {
 
-        assert btn1HourAddict != null : "fx:id=\"btn1HourAddict\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn1HourAltair != null : "fx:id=\"btn1HourAltair\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn1HourFormat != null : "fx:id=\"btn1HourFormat\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn1HourMaxit != null : "fx:id=\"btn1HourMaxit\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn1HourTwister != null : "fx:id=\"btn1HourTwister\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn1HourWelt != null : "fx:id=\"btn1HourWelt\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn1DayAddict != null : "fx:id=\"btn1HourAddict\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn1DayAltair != null : "fx:id=\"btn1HourAltair\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn1DayFormat != null : "fx:id=\"btn1HourFormat\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn1DayMaxit != null : "fx:id=\"btn1HourMaxit\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn1DayTwister != null : "fx:id=\"btn1HourTwister\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn1DayWelt != null : "fx:id=\"btn1HourWelt\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btn1WeekAddict != null : "fx:id=\"btn1WeekAddict\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btn1WeekAltair != null : "fx:id=\"btn1WeekAltair\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btn1WeekFormat != null : "fx:id=\"btn1WeekFormat\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btn1WeekMaxit != null : "fx:id=\"btn1WeekMaxit\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btn1WeekTwister != null : "fx:id=\"btn1WeekTwister\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btn1WeekWelt != null : "fx:id=\"btn1WeekWelt\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn3HourAddict != null : "fx:id=\"btn3HourAddict\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn3HourAltair != null : "fx:id=\"btn3HourAltair\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn3HourFormat != null : "fx:id=\"btn3HourFormat\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn3HourMaxit != null : "fx:id=\"btn3HourMaxit\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn3HourTwister != null : "fx:id=\"btn3HourTwister\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
-        assert btn3HourWelt != null : "fx:id=\"btn3HourWelt\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn3DayAddict != null : "fx:id=\"btn3HourAddict\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn3DayAltair != null : "fx:id=\"btn3HourAltair\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn3DayFormat != null : "fx:id=\"btn3HourFormat\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn3DayMaxit != null : "fx:id=\"btn3HourMaxit\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn3DayTwister != null : "fx:id=\"btn3HourTwister\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert btn3DayWelt != null : "fx:id=\"btn3HourWelt\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btnAddict != null : "fx:id=\"btnAddict\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btnAltair != null : "fx:id=\"btnAltair\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
@@ -331,6 +436,7 @@ public class BikesSemenovskaya  {
         assert errorTextTwister != null : "fx:id=\"errorTextTwister\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert errorTextWelt != null : "fx:id=\"errorTextWelt\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
         assert scrollPane != null : "fx:id=\"scrollPane\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
+        assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'bikes_semenovskaya.fxml'.";
 
 
         Platform.runLater(() -> {
@@ -338,24 +444,165 @@ public class BikesSemenovskaya  {
             scrollPane.setHvalue(0);
         });
 
+        if (choice[1] != null) {
+            DateTimeFormatter input = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+            // Форматтер для целевого формата даты
+            DateTimeFormatter output = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
+            // Преобразование строки в LocalDate
+            LocalDate _date = LocalDate.parse(choice[0], input);
+            date.setValue(_date);
+
+            if (choice[1].equals("ALTAIR AL29D")) {
+                btnAltair.setSelected(true);
+                if (choice[2].equals("1")) {
+                    btn1DayAltair.setSelected(true);
+                }
+                if (choice[2].equals("3")) {
+                    btn3DayAltair.setSelected(true);
+                }
+                if (choice[2].equals("7")) {
+                    btn1WeekAltair.setSelected(true);
+                }
+            }
+            if (choice[1].equals("ADDICT RC15")) {
+                btnAddict.setSelected(true);
+
+                if (choice[2].equals("1")) {
+                    btn1DayAddict.setSelected(true);
+                }
+                if (choice[2].equals("3")) {
+                    btn3DayAddict.setSelected(true);
+                }
+                if (choice[2].equals("7")) {
+                    btn1WeekAddict.setSelected(true);
+                }
+            }
+
+            if (choice[1].equals("FORMAT 7733")) {
+                btnFormat.setSelected(true);
+
+                if (choice[2].equals("1")) {
+                    btn1DayFormat.setSelected(true);
+                }
+                if (choice[2].equals("3")) {
+                    btn3DayFormat.setSelected(true);
+                }
+                if (choice[2].equals("7")) {
+                    btn1WeekFormat.setSelected(true);
+                }
+            }
+
+            if (choice[1].equals("TWISTER 26")) {
+                btnTwister.setSelected(true);
+
+                if (choice[2].equals("1")) {
+                    btn1DayTwister.setSelected(true);
+                }
+                if (choice[2].equals("3")) {
+                    btn3DayTwister.setSelected(true);
+                }
+                if (choice[2].equals("7")) {
+                    btn1WeekTwister.setSelected(true);
+                }
+            }
+            if (choice[1].equals("MAXIT D060")) {
+                btnMaxit.setSelected(true);
+
+                if (choice[2].equals("1")) {
+                    btn1DayMaxit.setSelected(true);
+                }
+                if (choice[2].equals("3")) {
+                    btn3DayMaxit.setSelected(true);
+                }
+                if (choice[2].equals("7")) {
+                    btn1WeekMaxit.setSelected(true);
+                }
+            }
+            if (choice[1].equals("WELT R90")) {
+                btnWelt.setSelected(true);
+
+                if (choice[2].equals("1")) {
+                    btn1DayWelt.setSelected(true);
+                }
+                if (choice[2].equals("3")) {
+                    btn3DayWelt.setSelected(true);
+                }
+                if (choice[2].equals("7")) {
+                    btn1WeekWelt.setSelected(true);
+                }
+
+            }
+        }
+        else {
+            LocalDate currentDate = LocalDate.now();
+            date.setValue(currentDate);
+        }
+        LocalDate selectedDate = date.getValue();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String date_format = selectedDate.format(formatter);
+        System.out.println(date_format);
+
+        //String c_d = currentDate.getYear() + "-"+currentDate.getMonth()+"-" + currentDate.getDayOfMonth();
+
+        if(!bikes.inStock("MAXIT D060",3, date_format)){
+            errorTextMaxit.setText("нет в наличии");
+            btnMaxit.setDisable(true);
+            btn1DayMaxit.setDisable(true);
+            btn3DayMaxit.setDisable(true);
+            btn1WeekMaxit.setDisable(true);
+        }
+        if(!bikes.inStock("FORMAT 7733",3, date_format)){
+            errorTextFromat.setText("нет в наличии");
+            btnFormat.setDisable(true);
+            btn1DayFormat.setDisable(true);
+            btn3DayFormat.setDisable(true);
+            btn1WeekFormat.setDisable(true);
+        } if(!bikes.inStock("WELT R90",3, date_format)){
+            errorTextWelt.setText("нет в наличии");
+            btnWelt.setDisable(true);
+            btn1DayWelt.setDisable(true);
+            btn3DayWelt.setDisable(true);
+            btn1WeekWelt.setDisable(true);
+        } if(!bikes.inStock("ADDICT RC15",3, date_format)){
+            errorTextAddict.setText("нет в наличии");
+            btnAddict.setDisable(true);
+            btn1DayAddict.setDisable(true);
+            btn3DayAddict.setDisable(true);
+            btn1WeekAddict.setDisable(true);
+        } if(!bikes.inStock("ALTAIR AL29D",3, date_format)){
+            errorTextAltair.setText("нет в наличии");
+            btnAltair.setDisable(true);
+            btn1DayAltair.setDisable(true);
+            btn3DayAltair.setDisable(true);
+            btn1WeekAltair.setDisable(true);
+        } if(!bikes.inStock("TWISTER 26",3, date_format)){
+            errorTextTwister.setText("нет в наличии");
+            btnTwister.setDisable(true);
+            btn1DayTwister.setDisable(true);
+            btn3DayTwister.setDisable(true);
+            btn1WeekTwister.setDisable(true);
+        }
+
         groupAddict = new ToggleGroup();
-        btn1HourAddict.setToggleGroup(groupAddict);
-        btn3HourAddict.setToggleGroup(groupAddict);
+        btn1DayAddict.setToggleGroup(groupAddict);
+        btn3DayAddict.setToggleGroup(groupAddict);
         btn1WeekAddict.setToggleGroup(groupAddict);
-        btn1HourAltair.setToggleGroup(groupAddict);
-        btn3HourAltair.setToggleGroup(groupAddict);
+        btn1DayAltair.setToggleGroup(groupAddict);
+        btn3DayAltair.setToggleGroup(groupAddict);
         btn1WeekAltair.setToggleGroup(groupAddict);
-        btn1HourFormat.setToggleGroup(groupAddict);
-        btn3HourFormat.setToggleGroup(groupAddict);
+        btn1DayFormat.setToggleGroup(groupAddict);
+        btn3DayFormat.setToggleGroup(groupAddict);
         btn1WeekFormat.setToggleGroup(groupAddict);
-        btn1HourMaxit.setToggleGroup(groupAddict);
-        btn3HourMaxit.setToggleGroup(groupAddict);
+        btn1DayMaxit.setToggleGroup(groupAddict);
+        btn3DayMaxit.setToggleGroup(groupAddict);
         btn1WeekMaxit.setToggleGroup(groupAddict);
-        btn1HourWelt.setToggleGroup(groupAddict);
-        btn3HourWelt.setToggleGroup(groupAddict);
+        btn1DayWelt.setToggleGroup(groupAddict);
+        btn3DayWelt.setToggleGroup(groupAddict);
         btn1WeekWelt.setToggleGroup(groupAddict);
-        btn1HourTwister.setToggleGroup(groupAddict);
-        btn3HourTwister.setToggleGroup(groupAddict);
+        btn1DayTwister.setToggleGroup(groupAddict);
+        btn3DayTwister.setToggleGroup(groupAddict);
         btn1WeekTwister.setToggleGroup(groupAddict);
 
 //        groupAltair = new ToggleGroup();
@@ -391,88 +638,8 @@ public class BikesSemenovskaya  {
         btnMaxit.setToggleGroup(groupBikes);
         btnWelt.setToggleGroup(groupBikes);
 
-        if (!choice.equals("")){
 
-            if (choice.split(" ")[0].equals("Altair")){
-                btnAltair.setSelected(true);
-                if (choice.split(" ")[1].equals("1Hour")){
-                    btn1HourAltair.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("3Hour")){
-                    btn3HourAltair.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("1Week")){
-                    btn1WeekAltair.setSelected(true);
-                }
-            }
-            if (choice.split(" ")[0].equals("Addict")){
-                btnAddict.setSelected(true);
 
-                if (choice.split(" ")[1].equals("1Hour")){
-                    btn1HourAddict.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("3Hour")){
-                    btn3HourAddict.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("1Week")){
-                    btn1WeekAddict.setSelected(true);
-                }
-            }
-
-            if (choice.split(" ")[0].equals("Format")){
-                btnFormat.setSelected(true);
-
-                if (choice.split(" ")[1].equals("1Hour")){
-                    btn1HourFormat.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("3Hour")){
-                    btn3HourFormat.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("1Week")){
-                    btn1WeekFormat.setSelected(true);
-                }
-            }
-
-            if (choice.split(" ")[0].equals("Twister")){
-                btnTwister.setSelected(true);
-
-                if (choice.split(" ")[1].equals("1Hour")){
-                    btn1HourTwister.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("3Hour")){
-                    btn3HourTwister.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("1Week")){
-                    btn1WeekTwister.setSelected(true);
-                }
-            }
-            if (choice.split(" ")[0].equals("Maxit")){
-                btnMaxit.setSelected(true);
-
-                if (choice.split(" ")[1].equals("1Hour")){
-                    btn1HourMaxit.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("3Hour")){
-                    btn3HourMaxit.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("1Week")){
-                    btn1WeekMaxit.setSelected(true);
-                }
-            }
-            if (choice.split(" ")[0].equals("Welt")){
-                btnWelt.setSelected(true);
-
-                if (choice.split(" ")[1].equals("1Hour")){
-                    btn1HourWelt.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("3Hour")){
-                    btn3HourWelt.setSelected(true);
-                }
-                if (choice.split(" ")[1].equals("1Week")){
-                    btn1WeekWelt.setSelected(true);
-                }
-            }
-        }
 
 
 

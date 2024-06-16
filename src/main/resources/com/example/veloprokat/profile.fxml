@@ -15,17 +15,17 @@
          <children>
             <Pane layoutX="20.0" layoutY="20.0" prefHeight="560.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
                <children>
-                  <Button fx:id="btnChange" layoutX="236.0" layoutY="425.0" mnemonicParsing="false" onAction="#toChange" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #ff5f00;" text="Изменить данные" textFill="WHITE">
+                  <Button fx:id="btnChange" layoutX="236.0" layoutY="399.0" mnemonicParsing="false" onAction="#toChange" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #ff5f00;" text="Изменить данные" textFill="WHITE">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnBack" layoutX="247.0" layoutY="482.0" mnemonicParsing="false" onAction="#toBack" prefHeight="31.0" prefWidth="166.0" style="-fx-background-color: #bedbff;" text="Вернуться назад" textFill="#012551">
+                  <Button fx:id="btnBack" layoutX="247.0" layoutY="444.0" mnemonicParsing="false" onAction="#toBack" prefHeight="31.0" prefWidth="166.0" style="-fx-background-color: #bedbff;" text="Вернуться назад" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Label layoutX="94.0" layoutY="201.0" prefHeight="22.0" text="Фамилия:" textFill="#012551">
+                  <Label layoutX="87.0" layoutY="184.0" prefHeight="22.0" text="Фамилия:" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
@@ -33,17 +33,17 @@
                   <Circle fill="WHITE" layoutX="330.0" layoutY="117.0" radius="57.0" stroke="WHITE" strokeType="INSIDE" />
                   <Polygon fill="#f7cdb8" layoutX="328.0" layoutY="152.0" points="-26.799957275390625, 11.399993896484375, 30.800018310546875, 11.399993896484375, 1.200042724609375, -65.80000305175781" stroke="#f7cdb8" strokeType="INSIDE" />
                   <Circle fill="#f7cdb8" layoutX="330.0" layoutY="86.0" radius="18.0" stroke="#f7cdb8" strokeType="INSIDE" />
-                  <Label layoutX="94.0" layoutY="303.0" prefHeight="22.0" text="Телефон:" textFill="#012551">
+                  <Label layoutX="87.0" layoutY="286.0" prefHeight="22.0" text="Телефон:" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="93.0" layoutY="337.0" prefHeight="22.0" text="Паспорт:" textFill="#012551">
+                  <Label layoutX="86.0" layoutY="320.0" prefHeight="22.0" text="Паспорт:" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="114.0" layoutY="371.0" prefHeight="22.0" text="Адрес:" textFill="#012551">
+                  <Label layoutX="107.0" layoutY="354.0" prefHeight="22.0" text="Адрес:" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
@@ -53,46 +53,51 @@
                         <Font name="DejaVu Sans Mono Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="secondName" layoutX="200.0" layoutY="235.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
+                  <Label fx:id="secondName" layoutX="193.0" layoutY="218.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="phone" layoutX="200.0" layoutY="303.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
+                  <Label fx:id="phone" layoutX="193.0" layoutY="286.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="passport" layoutX="200.0" layoutY="337.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
+                  <Label fx:id="passport" layoutX="193.0" layoutY="320.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="adress" layoutX="200.0" layoutY="371.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
+                  <Label fx:id="adress" layoutX="193.0" layoutY="354.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="firstName" layoutX="198.0" layoutY="201.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
+                  <Label fx:id="firstName" layoutX="191.0" layoutY="184.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="136.0" layoutY="235.0" prefHeight="22.0" text="Имя:" textFill="#012551">
+                  <Label layoutX="129.0" layoutY="218.0" prefHeight="22.0" text="Имя:" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="81.0" layoutY="269.0" prefHeight="22.0" text="Отчество:" textFill="#012551">
+                  <Label layoutX="74.0" layoutY="252.0" prefHeight="22.0" text="Отчество:" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="patronymic" layoutX="200.0" layoutY="269.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
+                  <Label fx:id="patronymic" layoutX="193.0" layoutY="252.0" prefHeight="22.0" prefWidth="430.0" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="15.0" />
                      </font>
                   </Label>
+                  <Button fx:id="btnOut" layoutX="562.0" layoutY="23.0" mnemonicParsing="false" onAction="#toOut" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: a7cfff;" text="Выйти" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </children></AnchorPane>

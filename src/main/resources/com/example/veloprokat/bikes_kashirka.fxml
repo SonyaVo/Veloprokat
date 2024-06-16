@@ -28,12 +28,12 @@
                         <Font name="DejaVu Sans Mono Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnNext" layoutX="258.0" layoutY="1756.0" mnemonicParsing="false" onAction="#toFinish" prefHeight="38.0" prefWidth="144.0" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
+                  <Button fx:id="btnNext" layoutX="258.0" layoutY="1774.0" mnemonicParsing="false" onAction="#toFinish" prefHeight="38.0" prefWidth="144.0" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnBack" layoutX="212.0" layoutY="1813.0" mnemonicParsing="false" onAction="#toMarkets" prefHeight="32.0" prefWidth="236.0" style="-fx-background-color: #bedbff;" text="Вернуться к магазинам" textFill="#012551">
+                  <Button fx:id="btnBack" layoutX="212.0" layoutY="1827.0" mnemonicParsing="false" onAction="#toMarkets" prefHeight="32.0" prefWidth="236.0" style="-fx-background-color: #bedbff;" text="Вернуться к магазинам" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
@@ -192,7 +192,7 @@
                         <Font name="DejaVu Sans Mono Bold" size="17.0" />
                      </font>
                   </Label>
-                  <DatePicker layoutX="242.0" layoutY="270.0" />
+                  <DatePicker fx:id="date" layoutX="242.0" layoutY="270.0" onAction="#toDate" />
                   <Label fx:id="errorTextDate" layoutX="20.0" layoutY="288.0" prefHeight="17.0" prefWidth="166.0" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="12.0" />
@@ -214,11 +214,11 @@
                   </RadioButton>
                   <Pane layoutX="40.0" layoutY="1562.0" prefHeight="106.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <RadioButton fx:id="btn1HourAltair" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 час" textFill="#012551">
+                        <RadioButton fx:id="btn1DayAltair" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 день" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="btn3HourAltair" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 часа" textFill="#012551">
+                        <RadioButton fx:id="btn3DayAltair" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 дня" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
@@ -235,11 +235,11 @@
                   </RadioButton>
                   <Pane layoutX="360.0" layoutY="1562.0" prefHeight="106.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <RadioButton fx:id="btn1HourTwister" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 час" textFill="#012551">
+                        <RadioButton fx:id="btn1DayTwister" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 день" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="btn3HourTwister" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 часа" textFill="#012551">
+                        <RadioButton fx:id="btn3DayTwister" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 дня" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
@@ -256,11 +256,11 @@
                   </RadioButton>
                   <Pane layoutX="40.0" layoutY="1095.0" prefHeight="106.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <RadioButton fx:id="btn1HourWelt" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 час" textFill="#012551">
+                        <RadioButton fx:id="btn1DayWelt" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 день" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="btn3HourWelt" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 часа" textFill="#012551">
+                        <RadioButton fx:id="btn3DayWelt" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 дня" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
@@ -272,11 +272,11 @@
                   </Pane>
                   <Pane layoutX="40.0" layoutY="628.0" prefHeight="106.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <RadioButton fx:id="btn1HourMaxit" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 час" textFill="#012551">
+                        <RadioButton fx:id="btn1DayMaxit" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 день" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="btn3HourMaxit" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 часа" textFill="#012551">
+                        <RadioButton fx:id="btn3DayMaxit" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 дня" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
@@ -293,11 +293,11 @@
                   </RadioButton>
                   <Pane layoutX="360.0" layoutY="628.0" prefHeight="106.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <RadioButton fx:id="btn1HourFormat" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" text="1 час" textFill="#012551">
+                        <RadioButton fx:id="btn1DayFormat" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" text="1 день" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="btn3HourFormat" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" text="3 часа" textFill="#012551">
+                        <RadioButton fx:id="btn3DayFormat" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" text="3 дня" textFill="#012551">
                            <font>
                               <Font size="14.0" />
                            </font></RadioButton>
@@ -314,11 +314,11 @@
                   </RadioButton>
                   <Pane layoutX="360.0" layoutY="1095.0" prefHeight="106.0" prefWidth="260.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <RadioButton fx:id="btn1HourAddict" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 час" textFill="#012551">
+                        <RadioButton fx:id="btn1DayAddict" layoutX="80.0" layoutY="11.5" mnemonicParsing="false" prefHeight="20.0" text="1 день" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
-                        <RadioButton fx:id="btn3HourAddict" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 часа" textFill="#012551">
+                        <RadioButton fx:id="btn3DayAddict" layoutX="80.0" layoutY="43.0" mnemonicParsing="false" prefHeight="20.0" text="3 дня" textFill="#012551">
                            <font>
                               <Font name="DejaVu Sans Mono Bold" size="14.0" />
                            </font></RadioButton>
@@ -366,6 +366,11 @@
                   <Label alignment="CENTER" layoutX="127.0" layoutY="1706.0" prefHeight="21.0" prefWidth="406.0" text="Бронировать можно только один велосипед" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorText" alignment="CENTER" layoutX="92.0" layoutY="1742.0" prefHeight="19.0" prefWidth="476.0" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="15.0" />
                      </font>
                   </Label>
                </children>

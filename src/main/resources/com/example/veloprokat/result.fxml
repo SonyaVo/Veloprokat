@@ -9,33 +9,28 @@
 <?import javafx.scene.text.Font?>
 
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.Result">
-  <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="700.0">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="700.0">
          <children>
             <Pane layoutX="20.0" layoutY="20.0" prefHeight="560.0" prefWidth="660.0" style="-fx-background-color: #dee8f4;">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="141.0" layoutX="62.0" layoutY="168.0" stroke="WHITE" strokeType="INSIDE" width="551.0" />
-                  <Label layoutX="67.0" layoutY="177.0" prefHeight="22.0" prefWidth="542.0" text="Дата аренды:" textFill="#012551">
+                  <Label layoutX="67.0" layoutY="177.0" prefHeight="22.0" prefWidth="542.0" text="Период:" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="67.0" layoutY="127.0" prefHeight="21.0" prefWidth="546.0" text="Ваша бронь:" textFill="#012551">
+                  <Label layoutX="67.0" layoutY="127.0" prefHeight="21.0" prefWidth="546.0" text="Ваша бронь" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="240.0" layoutY="62.0" prefHeight="30.0" prefWidth="180.0" text="БРОНИРОВАНИЕ" textFill="#012551">
+                  <Label alignment="CENTER" layoutX="240.0" layoutY="36.0" prefHeight="30.0" prefWidth="180.0" text="БРОНИРОВАНИЕ" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="res" layoutX="67.0" layoutY="201.0" prefHeight="32.0" prefWidth="485.0" textFill="#012551">
-                     <font>
-                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="66.0" layoutY="326.0" prefHeight="25.0" prefWidth="553.0" text="Итого: " textFill="#012551">
+                  <Label layoutX="64.0" layoutY="316.0" prefHeight="25.0" prefWidth="553.0" text="Итого: " textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="20.0" />
                      </font>
@@ -50,13 +45,48 @@
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Label fx:id="numberBook" layoutX="290.0" layoutY="503.0" text="Label" textFill="#012551">
+                  <Label fx:id="numberBook" alignment="CENTER" layoutX="34.0" layoutY="485.0" prefHeight="24.0" prefWidth="593.0" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="date" layoutX="150.0" layoutY="179.0" prefHeight="17.0" prefWidth="374.0" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="67.0" layoutY="219.0" text="Модель:" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="model" layoutX="150.0" layoutY="220.0" prefHeight="17.0" prefWidth="374.0" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="price" layoutX="150.0" layoutY="319.0" prefHeight="17.0" prefWidth="374.0" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="67.0" layoutY="264.0" text="Магазин:" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="market" layoutX="160.0" layoutY="265.0" prefHeight="19.0" prefWidth="445.0" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorText" alignment="CENTER" layoutX="77.0" layoutY="355.0" prefHeight="18.0" prefWidth="506.0" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
          </children></AnchorPane>
-  </content>
+   </content>
 </ScrollPane>

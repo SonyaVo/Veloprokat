@@ -20,6 +20,9 @@ public class ChoiceAdmin {
 
     @FXML
     private URL location;
+    @FXML
+    private Button btnOut;
+
 
     @FXML
     private Button btnCancel;
@@ -38,6 +41,14 @@ public class ChoiceAdmin {
         List.add(nameFile);
     }
 
+    @FXML
+    void toOut(ActionEvent event)throws IOException {
+        Stage stage = (Stage) btnOut.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_user_or_admin.fxml")));
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 700, 600));
+        stage.show();
+    }
     public String getNameFile() {
         return nameFile;
     }
@@ -45,7 +56,7 @@ public class ChoiceAdmin {
     @FXML
     void toCancel(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnCancel.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cancel_order.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cancel_order_admin.fxml")));
         stage.setTitle("dddd");
         stage.setScene(new Scene(root, 700, 600));
         stage.show();
@@ -75,6 +86,7 @@ public class ChoiceAdmin {
         assert btnPay != null : "fx:id=\"btnPay\" was not injected: check your FXML file 'choice_admin.fxml'.";
         assert btnRent != null : "fx:id=\"btnRent\" was not injected: check your FXML file 'choice_admin.fxml'.";
         assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'choice_admin.fxml'.";
+        assert btnOut != null : "fx:id=\"btnOut\" was not injected: check your FXML file 'choice_admin.fxml'.";
 
     }
 

@@ -20,28 +20,38 @@
                                 <Font name="DejaVu Sans Mono Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="90.0" layoutX="40.0" layoutY="190.0" stroke="WHITE" strokeType="INSIDE" width="580.0" />
-                        <Label fx:id="textOrders" alignment="CENTER" layoutX="70.0" layoutY="225.0" style="-fx-background-color: #ffffff;" text="Номер брони:" textFill="#012551">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="137.0" layoutX="40.0" layoutY="167.0" stroke="WHITE" strokeType="INSIDE" width="580.0" />
+                        <Label fx:id="textOrders" alignment="CENTER" layoutX="64.0" layoutY="195.0" style="-fx-background-color: #ffffff;" text="Номер брони:" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="18.0" />
                             </font>
                         </Label>
-                        <Button fx:id="btnBack" layoutX="236.0" layoutY="422.0" mnemonicParsing="false" onAction="#toBack" prefHeight="34.0" prefWidth="188.0" style="-fx-background-color: #bedbff;" text="Вернуться назад" textFill="#012551">
+                        <Button fx:id="btnBack" layoutX="231.0" layoutY="420.0" mnemonicParsing="false" onAction="#toBack" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #bedbff;" text="Вернуться назад" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="18.0" />
                             </font>
                         </Button>
-                        <Button fx:id="btnPay" layoutX="265.0" layoutY="360.0" mnemonicParsing="false" onAction="#toPay" prefHeight="37.0" prefWidth="130.0" style="-fx-background-color: #ff5f00;" text="Оплатить" textFill="WHITE">
+                        <Button fx:id="btnPay" layoutX="265.0" layoutY="371.0" mnemonicParsing="false" onAction="#toPay" prefHeight="37.0" prefWidth="130.0" style="-fx-background-color: #ff5f00;" text="Оплатить" textFill="WHITE">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="19.0" />
                             </font>
                         </Button>
-                        <Label fx:id="errorText" layoutX="114.0" layoutY="313.0" prefHeight="20.0" prefWidth="433.0" textFill="#012551">
+                        <Label fx:id="errorText" alignment="CENTER" layoutX="114.0" layoutY="321.0" prefHeight="38.0" prefWidth="433.0" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="16.0" />
                             </font>
                         </Label>
-                  <TextField layoutX="208.0" layoutY="223.0" prefHeight="25.0" prefWidth="382.0">
+                  <TextField fx:id="numBook" layoutX="210.0" layoutY="191.0" prefHeight="25.0" prefWidth="382.0">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="textOrders1" alignment="CENTER" layoutX="107.0" layoutY="244.0" style="-fx-background-color: #ffffff;" text="Телефон:" textFill="#012551">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="phone" layoutX="210.0" layoutY="240.0" prefHeight="25.0" prefWidth="382.0">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="15.0" />
                      </font>

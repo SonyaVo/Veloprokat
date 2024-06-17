@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class Pay {
+public class SetPay {
 
     final String nameFile = "pay.fxml";
 
@@ -41,8 +41,7 @@ public class Pay {
 
     @FXML
     private Label textOrders;
-
-    public Pay() {
+    public SetPay(){
         List.add(nameFile);
     }
 
@@ -52,19 +51,16 @@ public class Pay {
 
     @FXML
     void isPay(ActionEvent event) {
-
         Bookings_SQL book = new Bookings_SQL();
         Rent_SQL rent = new Rent_SQL();
 
-        rent.addRent(Rent.getId_book(), "оплачено");
-        status.setText("УСПЕШНО");
+        boolean flag = rent.setStaus(Integer.parseInt(numBook.getText()), "оплачено");
+        if (flag)
+            status.setText("УСПЕШНО");
         btnPay.setDisable(true);
 
+
     }
-
-
-
-
 
     @FXML
     void toBack(ActionEvent event)  throws IOException {
@@ -87,17 +83,12 @@ public class Pay {
         Bikes_SQL bike = new Bikes_SQL();
         Tariff_SQL t = new Tariff_SQL();
         Bookings_SQL b = new Bookings_SQL();
-
-        numBook.setText(Rent.getId_book()+"");
-        int id_type = bike.getTypeInBook(Rent.getId_book());
-        int days = b.getDaysForBook(Rent.getId_book());
+        numBook.setText(NotPay.getId_book()+"");
+        int id_type = bike.getTypeInBook(NotPay.getId_book());
+        int days = b.getDaysForBook(NotPay.getId_book());
         sum.setText("" + t.getPrice(id_type, days));
 
+
     }
-
-
-
-
-
 
 }

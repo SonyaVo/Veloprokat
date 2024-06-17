@@ -1,9 +1,8 @@
 package com.example.veloprokat;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Rent_SQL {
     public boolean addRent(int id_book, String status){
@@ -60,5 +59,204 @@ public class Rent_SQL {
             }
         }
         return success;
+    }
+
+    public boolean isInRent(int id_book) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+
+        try {
+            // Проверяем наличие драйвера JDBC
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Устанавливаем соединение с базой данных
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/veloprokat",
+                    "veloprokat", "Stud249013!");
+
+            // Создаем объект Statement для выполнения запросов к базе данных
+            Statement statement = connection.createStatement();
+
+            // Формируем SQL-запрос
+            String query = "SELECT id_booking FROM rents WHERE id_booking = ?";
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id_book);
+
+            // Выполняем запрос
+            resultSet = preparedStatement.executeQuery();
+
+
+            if (resultSet.next()) {
+               return true;
+            }
+            // Закрываем ресурсы
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        } finally {
+            try {
+                // Закрываем соединение в блоке finally для обеспечения его закрытия в любом случае
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+            }
+        }
+        return false;
+    }
+
+    public boolean setStaus(int id_book, String status){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        boolean success = false;
+
+        try {
+            // Установка соединения с базой данных
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/veloprokat",
+                    "veloprokat", "Stud249013!");
+
+            // SQL-запрос для обновления поля клиента
+            String query = "UPDATE rents SET status = ? WHERE id_booking = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, status);
+            preparedStatement.setInt(2, id_book);
+
+            // Выполнение запроса
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            // Если обновление прошло успешно (была обновлена хотя бы одна строка), устанавливаем флаг успеха
+            if (rowsAffected > 0) {
+                success = true;
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        } finally {
+            // Закрытие ресурсов
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии ресурсов: " + e.getMessage());
+            }
+        }
+
+        return success;
+    }
+
+    public String getStatus(int id_book){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+        String status = "";
+
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/veloprokat",
+                    "veloprokat", "Stud249013!");
+
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT status FROM rents Where id_booking = ?";
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id_book);
+
+
+
+            // Выполняем запрос
+            result = preparedStatement.executeQuery();
+
+
+            if (result.next()) {
+                status = result.getString("status");
+
+            }
+            // Закрываем ресурсы
+            result.close();
+            statement.close();
+            connection.close();
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        } finally {
+            try {
+                // Закрываем соединение в блоке finally для обеспечения его закрытия в любом случае
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+            }
+        }
+        return status;
+    }
+
+    public ArrayList<Integer> getRentsFor(String phone){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+        String status = "";
+        ArrayList<Integer> list = new ArrayList<>();
+
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/veloprokat",
+                    "veloprokat", "Stud249013!");
+
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT id_booking FROM rents Join bookings USING(id_booking) Where id_client = ?";
+
+            //Users_SQL usersSql = new Users_SQL();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,Users_SQL.getId(phone));
+
+
+
+            // Выполняем запрос
+            result = preparedStatement.executeQuery();
+
+
+            while (result.next()) {
+                list.add(result.getInt("id_booking"));
+            }
+            // Закрываем ресурсы
+            result.close();
+            statement.close();
+            connection.close();
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        } finally {
+            try {
+                // Закрываем соединение в блоке finally для обеспечения его закрытия в любом случае
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+            }
+        }
+        return list;
     }
 }

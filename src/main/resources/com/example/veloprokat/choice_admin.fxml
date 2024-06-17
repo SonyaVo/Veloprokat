@@ -29,6 +29,11 @@
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
             </Button>
+            <Button fx:id="btnOut" layoutX="566.0" layoutY="21.0" mnemonicParsing="false" onAction="#toOut" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: a5ceff;" text="Выйти" textFill="#012551">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="17.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
     </children>

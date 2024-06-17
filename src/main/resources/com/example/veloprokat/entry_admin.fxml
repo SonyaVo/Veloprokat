@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -8,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.veloprokat.EntryAdmin">
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="700.0">
@@ -30,7 +28,7 @@
                                 <Font name="DejaVu Sans Mono Bold" size="14.0" />
                             </font>
                         </PasswordField>
-                        <Button fx:id="btnNext" layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#toMarketsEntr" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
+                        <Button fx:id="btnNext" layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#toEntr" style="-fx-background-color: #ff5f00;" text="Продолжить" textFill="WHITE">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="20.0" />
                             </font>
@@ -40,7 +38,7 @@
                                 <Font name="DejaVu Sans Mono Bold" size="16.0" />
                             </font>
                         </Button>
-                        <Label fx:id="errorText" layoutX="164.0" layoutY="192.0" prefHeight="20.0" prefWidth="332.0" textFill="#012551">
+                        <Label fx:id="errorText" alignment="CENTER" layoutX="50.0" layoutY="190.0" prefHeight="20.0" prefWidth="563.0" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="16.0" />
                             </font></Label>

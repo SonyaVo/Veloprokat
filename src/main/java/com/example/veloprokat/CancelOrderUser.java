@@ -1,10 +1,9 @@
 package com.example.veloprokat;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,24 +14,25 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CancelOrder {
+public class CancelOrderUser {
 
-    final String nameFile = "cancel_order.fxml";
+    final String nameFile = "cancel_order_user.fxml";
     @FXML
     private Button btnBack;
 
     @FXML
     private Button btnCancel;
+
+    @FXML
+    private Label errorText;
+
     @FXML
     private TextField numBook;
 
     @FXML
-    private Label status;
-
-    @FXML
     private Label textOrders;
 
-    public CancelOrder(){
+    public CancelOrderUser(){
         List.add(nameFile);
     }
 
@@ -67,21 +67,22 @@ public class CancelOrder {
         if (flag) {
             book.deleteBooking(Integer.parseInt(numBook.getText()));
             btnCancel.setDisable(true);
-            status.setText("УСПЕШНО");
+            errorText.setText("УСПЕШНО");
         }
         else {
-            status.setText("бронь не найдена");
+            errorText.setText("бронь не найдена");
         }
 
     }
 
     @FXML
     void initialize() {
-        assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'cancel_order.fxml'.";
-        assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'cancel_order.fxml'.";
-        assert status != null : "fx:id=\"status\" was not injected: check your FXML file 'cancel_order.fxml'.";
-        assert textOrders != null : "fx:id=\"textOrders\" was not injected: check your FXML file 'cancel_order.fxml'.";
-        assert numBook != null : "fx:id=\"numBook\" was not injected: check your FXML file 'cancel_order.fxml'.";
+        assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'cancel_order_user.fxml'.";
+        assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'cancel_order_user.fxml'.";
+        assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'cancel_order_user.fxml'.";
+        assert numBook != null : "fx:id=\"numBook\" was not injected: check your FXML file 'cancel_order_user.fxml'.";
+        assert textOrders != null : "fx:id=\"textOrders\" was not injected: check your FXML file 'cancel_order_user.fxml'.";
+
 
     }
 

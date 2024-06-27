@@ -32,11 +32,10 @@ public class EntryAdmin {
     private TextField login;
     @FXML
     private PasswordField password;
-    public EntryAdmin(){
+
+    public EntryAdmin() {
         List.add(nameFile);
     }
-
-
 
 
     @FXML
@@ -65,12 +64,12 @@ public class EntryAdmin {
         }
     }
 
-        @FXML
-        void initialize() {
-            assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'entry_user.fxml'.";
-            assert btnNext != null : "fx:id=\"btnNext\" was not injected: check your FXML file 'entry_user.fxml'.";
-            assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'entry_user.fxml'.";
-            assert login != null : "fx:id=\"login\" was not injected: check your FXML file 'entry_user.fxml'.";
-            assert password != null : "fx:id=\"password\" was not injected: check your FXML file 'entry_user.fxml'.";
-        }
+    @FXML
+    void initialize() {
+        assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'entry_user.fxml'.";
+        assert btnNext != null : "fx:id=\"btnNext\" was not injected: check your FXML file 'entry_user.fxml'.";
+        assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'entry_user.fxml'.";
+        assert login != null : "fx:id=\"login\" was not injected: check your FXML file 'entry_user.fxml'.";
+        assert password != null : "fx:id=\"password\" was not injected: check your FXML file 'entry_user.fxml'.";
     }
+}

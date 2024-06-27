@@ -42,8 +42,6 @@ public class Result {
     @FXML
     private Label price;
 
-
-
     private static String[] tariff = new String[2];
 
     private static String[] choice= new String[3];
@@ -58,6 +56,7 @@ public class Result {
 
 
     private static LocalDate remDateFinish;
+    private Bookings_SQL books;
 
 
     public Result(){
@@ -75,22 +74,24 @@ public class Result {
                 break;
 
         }
+        books = Bookings_SQL.getInstance();
+
     }
 
     @FXML
     void toBook(ActionEvent event) {
-        Bookings_SQL book = new Bookings_SQL();
         //Users_SQL user = new Users_SQL();
-        if(!book.getBookingForTheDate(EntryUser.getLogin(),varDateStart) ) {
+        if(!books.getBookingForTheDate(EntryUser.getLogin(),varDateStart) ) {
             btnBook.setDisable(false);
 
-            System.out.println(EntryUser.getLogin());
-            book.addBooking(varModel, EntryUser.getLogin(), varMarket, varDateStart, varDateFinish);
+            books.addBooking(varModel, EntryUser.getLogin(), varMarket, varDateStart, varDateFinish);
 
-            numberBook.setText(book.getId(EntryUser.getLogin(), varDateStart) + "");
+            numberBook.setText(books.getId(EntryUser.getLogin(), varDateStart) + "");
             btnBook.setDisable(true);
 
             remDateStart = varDateStart;
+            choice[1]= null;
+            choice[2] = null;
             //errorText.setText("нет броней");
         }
         else {
@@ -145,7 +146,7 @@ public class Result {
         return choice;
     }
 
-    private String getTarrif(String bike){
+    private String getFullModel(String bike){
         switch (bike){
             case ("MAXIT D060"):
             case ("FORMAT 7733"):
@@ -196,7 +197,7 @@ public class Result {
 
                 market.setText("'Крути', Каширская улица, дом 3, корпус 1");
 
-                model.setText(getTarrif(choice[1]));
+                model.setText(getFullModel(choice[1]));
 
                 switch (tariff[0]) {
                     case ("городской"):
@@ -250,7 +251,7 @@ public class Result {
                 date.setText(period_s[0] + " - " + period_s[1]);
                 //model.setText(getTarrif(choice[1]));
                 market.setText("'Мчи', Большая семеновская улица, дом 55");
-                model.setText(getTarrif(choice[1]));
+                model.setText(getFullModel(choice[1]));
 
                 switch (tariff[0]) {
                     case ("городской"):
@@ -306,7 +307,7 @@ public class Result {
                 date.setText(period_n[0] + " - " + period_n[1]);
                 //model.setText(getTarrif(choice[1]));
                 market.setText("'Велик', Никитская улица, дом 22");
-                model.setText(getTarrif(choice[1]));
+                model.setText(getFullModel(choice[1]));
 
                 switch (tariff[0]) {
                     case ("городской"):

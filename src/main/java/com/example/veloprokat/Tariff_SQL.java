@@ -1,8 +1,31 @@
 package com.example.veloprokat;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Tariff_SQL {
+
+    // Единственный экземпляр класса
+    private static Tariff_SQL instance;
+
+    // Закрытый конструктор, чтобы предотвратить создание экземпляров извне
+    private Tariff_SQL() {
+        try {
+            // Загружаем драйвер JDBC
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        }
+    }
+
+    // Метод для получения единственного экземпляра класса
+    public static synchronized Tariff_SQL getInstance() {
+        if (instance == null) {
+            instance = new Tariff_SQL();
+        }
+        return instance;
+    }
     public int getId(int id_type, int days){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -32,10 +55,6 @@ public class Tariff_SQL {
 
             if (resultSet.next()) {
                 id = resultSet.getInt("id_tariff");
-                System.out.println(id);
-            } else {
-                System.out.println("не найден");
-
             }
             resultSet.close();
             statement.close();
@@ -89,7 +108,6 @@ public class Tariff_SQL {
                 price = resultSet.getInt("price");
 
             } else {
-                System.out.println("не найден");
 
             }
             resultSet.close();

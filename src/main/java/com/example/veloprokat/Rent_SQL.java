@@ -5,18 +5,36 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Rent_SQL {
-    public boolean addRent(int id_book, String status){
-        Bookings_SQL book = new Bookings_SQL();
-        Bikes_SQL bike = new Bikes_SQL();
-        Tariff_SQL tariff = new Tariff_SQL();
 
-        int id_type = bike.getTypeInBook(id_book);
+    // Единственный экземпляр класса
+    private static Rent_SQL instance;
+
+    // Закрытый конструктор, чтобы предотвратить создание экземпляров извне
+    private Rent_SQL() {
+        try {
+            // Загружаем драйвер JDBC
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        }
+    }
+
+    // Метод для получения единственного экземпляра класса
+    public static synchronized Rent_SQL getInstance() {
+        if (instance == null) {
+            instance = new Rent_SQL();
+        }
+        return instance;
+    }
+    public boolean addRent(int id_book, String status){
+        Bookings_SQL book = Bookings_SQL.getInstance();
+        Tariff_SQL tariff = Tariff_SQL.getInstance();
+        int id_type = book.getTypeInBook(id_book);
         int period = book.getDaysForBook(id_book);
         int id_tariff = tariff.getId(id_type,period);
 
         Connection connection = null;
         boolean success = false;
-        Bikes_SQL bikes = new Bikes_SQL();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 

@@ -43,6 +43,14 @@ public class CancelOrderAdmin {
 
     @FXML
     private Label textOrders1;
+    private Bookings_SQL books;
+    private Rent_SQL rents;
+
+    public CancelOrderAdmin(){
+        books = Bookings_SQL.getInstance();
+        rents = Rent_SQL.getInstance();
+
+    }
 
     @FXML
     void toBack(ActionEvent event) throws IOException {
@@ -55,14 +63,13 @@ public class CancelOrderAdmin {
 
     @FXML
     void toCancel(ActionEvent event) throws IOException {
-        Bookings_SQL book = new Bookings_SQL();
-        Rent_SQL rent = new Rent_SQL();
-        ArrayList<Integer> list = book.bookingsForUser(phone.getText());
+
+        ArrayList<Integer> list = books.bookingsForUser(phone.getText());
         String flag = "false";
         if (!numBook.getText().isEmpty()){
             for (int i=0;i<list.size();i++){
                 if (Integer.parseInt(numBook.getText()) == list.get(i)){
-                    if (rent.isInRent(Integer.parseInt(numBook.getText()))){
+                    if (rents.isInRent(Integer.parseInt(numBook.getText()))){
                         flag = "арендован";
                     }
                     else
@@ -73,7 +80,7 @@ public class CancelOrderAdmin {
 
         }
         if (flag.equals("true")) {
-            book.deleteBooking(Integer.parseInt(numBook.getText()));
+            books.deleteBooking(Integer.parseInt(numBook.getText()));
             btnCancel.setDisable(true);
             errorText.setText("УСПЕШНО");
         }

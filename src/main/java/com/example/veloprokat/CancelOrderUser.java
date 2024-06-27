@@ -31,9 +31,12 @@ public class CancelOrderUser {
 
     @FXML
     private Label textOrders;
+    private Bookings_SQL books;
+
 
     public CancelOrderUser(){
-        List.add(nameFile);
+        //List.add(nameFile);
+        books = Bookings_SQL.getInstance();
     }
 
     public String getNameFile() {
@@ -44,7 +47,7 @@ public class CancelOrderUser {
     void toBack(ActionEvent event) throws IOException {
         if (!List.list.isEmpty()) {
             Stage stage = (Stage) btnBack.getScene().getWindow();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(List.get(List.list.size() - 2))));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("orders.fxml")));
             stage.setTitle("");
             stage.setScene(new Scene(root, 700, 600));
             stage.show();
@@ -53,8 +56,8 @@ public class CancelOrderUser {
 
     @FXML
     void toCancel(ActionEvent event) throws IOException {
-        Bookings_SQL book = new Bookings_SQL();
-        ArrayList<Integer> list = book.bookingsForUser(EntryUser.getLogin());
+
+        ArrayList<Integer> list = books.bookingsForUser(EntryUser.getLogin());
         boolean flag = false;
         if (!numBook.getText().isEmpty()){
             for (int i=0;i<list.size();i++){
@@ -65,7 +68,7 @@ public class CancelOrderUser {
 
         }
         if (flag) {
-            book.deleteBooking(Integer.parseInt(numBook.getText()));
+            books.deleteBooking(Integer.parseInt(numBook.getText()));
             btnCancel.setDisable(true);
             errorText.setText("УСПЕШНО");
         }

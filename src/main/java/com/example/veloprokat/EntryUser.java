@@ -40,9 +40,13 @@ public class EntryUser {
 
     private static String varLogin;
     private static String varPassword;
+    private Users_SQL users;
+
 
     public EntryUser(){
         List.add(nameFile);
+        users = Users_SQL.getInstance();
+
     }
 
 
@@ -61,7 +65,6 @@ public class EntryUser {
         varLogin = login.getText();
         varPassword = password.getText();
         if (!login.getText().isEmpty() && !password.getText().isEmpty()) {
-            Users_SQL users = new Users_SQL();
             String flag = users.isUsers(login.getText(), password.getText());
 
             if (flag.equals("существует")) {

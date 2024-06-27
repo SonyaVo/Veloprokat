@@ -13,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.time.LocalDate;
 
@@ -120,6 +122,9 @@ public class BikesKashirka{
 
     @FXML
     private Label errorTextFromat;
+    @FXML
+    private ImageView i;
+
 
     @FXML
     private Label errorTextMaxit;
@@ -155,12 +160,16 @@ public class BikesKashirka{
     private ToggleGroup groupBikes;
 
     private Bikes_SQL bikes;
+    @FXML
+    private ImageView img;
+
+
 
     private static String[] choice = new String[3];
 
     public BikesKashirka(){
         //choice = new String[3];
-         bikes = new Bikes_SQL();
+         bikes = Bikes_SQL.getInstance();
         List.add(nameFile);
     }
 
@@ -226,7 +235,6 @@ public class BikesKashirka{
         LocalDate selectedDate = date.getValue();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String date_format = selectedDate.format(formatter);
-        System.out.println(bikes.inStock("MAXIT D060",1, date_format));
 
 
         if(!bikes.inStock("MAXIT D060",1, date_format)){
@@ -273,7 +281,6 @@ public class BikesKashirka{
     @FXML
     void toFinish(ActionEvent event) throws IOException {
         choice[0] = date.getValue() +"";
-        System.out.println(choice[0]);
         if (btnAddict.isSelected()){
             if (btn1DayAddict.isSelected()){
                 choice[1] = "ADDICT RC15";
@@ -372,14 +379,23 @@ public class BikesKashirka{
 
             }
         }
-
-
+        LocalDate currentDate = LocalDate.now();
+        if ((choice[1] != null) & (date.getValue().isAfter(currentDate) | date.getValue().isEqual(currentDate))){
             Stage stage = (Stage) btnNext.getScene().getWindow();
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("result.fxml")));
             stage.setTitle("dddd");
             stage.setScene(new Scene(root, 700, 600));
             stage.show();
+        }
+
+        if (!(date.getValue().isAfter(currentDate) | date.getValue().isEqual(currentDate))){
+            errorText.setText("дата некорректна");
+
+        }
+        else {
+            errorText.setText("выберите модель и время");
+        }
 
 
     }
@@ -436,6 +452,10 @@ public class BikesKashirka{
         assert errorTextTwister != null : "fx:id=\"errorTextTwister\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
         assert errorTextWelt != null : "fx:id=\"errorTextWelt\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
         assert scrollPane != null : "fx:id=\"scrollPane\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
+        assert img != null : "fx:id=\"img\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
+        assert i != null : "fx:id=\"i\" was not injected: check your FXML file 'bikes_kashirka.fxml'.";
+        Image image = new Image(getClass().getResourceAsStream("/Bike.png"));
+        i.setImage(image);
 
 
         if (choice[1] != null) {
@@ -538,9 +558,8 @@ public class BikesKashirka{
         LocalDate selectedDate = date.getValue();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String date_format = selectedDate.format(formatter);
-        System.out.println(date_format);
 
-        //String c_d = currentDate.getYear() + "-"+currentDate.getMonth()+"-" + currentDate.getDayOfMonth();
+        //String c_d = currentDate.getYear() + "-" + currentDate.getMonth()+"-" + currentDate.getDayOfMonth();
 
         if(!bikes.inStock("MAXIT D060",1, date_format)){
             errorTextMaxit.setText("нет в наличии");

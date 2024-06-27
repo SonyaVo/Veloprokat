@@ -57,10 +57,13 @@ public class Profile {
     private static String varPassport;
     private static String varAdress;
     private static String user[] = new String[6];
+    private Users_SQL users;
+
 
     public Profile(){
-        Users_SQL sql = new Users_SQL();
-        user = sql.getUser(EntryUser.getLogin());
+        users = Users_SQL.getInstance();
+
+        user = users.getUser(EntryUser.getLogin());
 
         //List.add(nameFile);
     }
@@ -137,7 +140,7 @@ public class Profile {
         assert secondName != null : "fx:id=\"secondName\" was not injected: check your FXML file 'profile.fxml'.";
 
 
-       varFirstName = user[1];
+        varFirstName = user[1];
         varSecondName = user[2];
         varPatronymic = user[3];
         varPassport = user[4];

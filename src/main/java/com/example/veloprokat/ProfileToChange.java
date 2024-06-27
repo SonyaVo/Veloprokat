@@ -48,8 +48,9 @@ public class ProfileToChange   {
     private Users_SQL sql;
 
 
+
     public ProfileToChange(){
-        sql = new Users_SQL();
+        sql = Users_SQL.getInstance();
         user = sql.getUser(EntryUser.getLogin());
         //List.add(nameFile);
 

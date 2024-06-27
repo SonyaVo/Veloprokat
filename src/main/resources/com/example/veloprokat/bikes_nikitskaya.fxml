@@ -41,12 +41,12 @@
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="405.0" layoutX="20.0" layoutY="348.0" stroke="#a1bedf" strokeType="INSIDE" width="300.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="405.0" layoutX="340.0" layoutY="348.0" stroke="#a1bedf" strokeType="INSIDE" width="300.0" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="236.0" layoutY="871.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label layoutX="129.0" layoutY="566.0" prefHeight="23.0" prefWidth="82.0" text="8 передач" textFill="#012551">
+                        <Label layoutX="124.0" layoutY="566.0" prefHeight="23.0" prefWidth="92.0" text="2 передачи" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="15.0" />
                             </font>
                         </Label>
-                        <Label layoutX="448.0" layoutY="566.0" prefHeight="23.0" prefWidth="90.0" text="10 передач" textFill="#012551">
+                        <Label layoutX="448.0" layoutY="566.0" prefHeight="23.0" prefWidth="90.0" text="2 передачи" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="15.0" />
                             </font>
@@ -68,12 +68,12 @@
                         </Label>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="405.0" layoutX="20.0" layoutY="815.0" stroke="#a1bedf" strokeType="INSIDE" width="300.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="405.0" layoutX="340.0" layoutY="815.0" stroke="#a1bedf" strokeType="INSIDE" width="300.0" />
-                        <Label layoutX="129.0" layoutY="1033.0" prefHeight="23.0" prefWidth="82.0" text="8 передач" textFill="#012551">
+                        <Label alignment="CENTER" layoutX="122.0" layoutY="1033.0" prefHeight="23.0" prefWidth="91.0" text="20 передач" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="15.0" />
                             </font>
                         </Label>
-                        <Label layoutX="448.0" layoutY="1033.0" prefHeight="23.0" prefWidth="90.0" text="10 передач" textFill="#012551">
+                        <Label alignment="CENTER" layoutX="443.0" layoutY="1033.0" prefHeight="23.0" prefWidth="101.0" text="24 передачи" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="15.0" />
                             </font>
@@ -96,12 +96,12 @@
                         </Label>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="405.0" layoutX="20.0" layoutY="1282.0" stroke="#a1bedf" strokeType="INSIDE" width="300.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1bedf" height="405.0" layoutX="340.0" layoutY="1282.0" stroke="#a1bedf" strokeType="INSIDE" width="300.0" />
-                        <Label layoutX="129.0" layoutY="1500.0" prefHeight="23.0" prefWidth="82.0" text="8 передач" textFill="#012551">
+                        <Label alignment="CENTER" layoutX="123.0" layoutY="1500.0" prefHeight="23.0" prefWidth="90.0" text="11 передач" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="15.0" />
                             </font>
                         </Label>
-                        <Label layoutX="448.0" layoutY="1500.0" prefHeight="23.0" prefWidth="90.0" text="10 передач" textFill="#012551">
+                        <Label alignment="CENTER" layoutX="448.0" layoutY="1500.0" prefHeight="23.0" prefWidth="90.0" text="12 передач" textFill="#012551">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="15.0" />
                             </font>
@@ -142,22 +142,22 @@
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="btnFormat" layoutX="419.0" layoutY="537.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Format 7733" textFill="#012551">
+                  <RadioButton fx:id="btnFormat" layoutX="419.0" layoutY="537.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="FORMAT 7733" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="btnWelt" layoutX="116.0" layoutY="1004.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Welt R90" textFill="#012551">
+                  <RadioButton fx:id="btnWelt" layoutX="116.0" layoutY="1004.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="WELT R90" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="btnAddict" layoutX="428.0" layoutY="1004.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="Addict RC15" textFill="#012551">
+                  <RadioButton fx:id="btnAddict" layoutX="428.0" layoutY="1004.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="136.0" text="ADDICT RC15" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="btnAltair" layoutX="86.0" layoutY="1471.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="146.0" text="Altair AL29D" textFill="#012551">
+                  <RadioButton fx:id="btnAltair" layoutX="86.0" layoutY="1471.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="146.0" text="ALTAIR AL29D" textFill="#012551">
                      <font>
                         <Font name="DejaVu Sans Mono Bold" size="16.0" />
                      </font>
@@ -361,32 +361,32 @@
                   </Pane>
                   <ImageView fitHeight="164.0" fitWidth="260.0" layoutX="40.0" layoutY="1302.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/Велик%201.jpg" />
+                        <Image url="@../../../images/89.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="164.0" fitWidth="260.0" layoutX="360.0" layoutY="1302.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/Велик%201.jpg" />
+                        <Image url="@../../../images/ii.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="164.0" fitWidth="260.0" layoutX="40.0" layoutY="835.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/Велик%201.jpg" />
+                        <Image url="@../../../images/89.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="164.0" fitWidth="260.0" layoutX="360.0" layoutY="835.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/Велик%201.jpg" />
+                        <Image url="@../../../images/89.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="164.0" fitWidth="260.0" layoutX="40.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/Велик%201.jpg" />
+                        <Image url="@../../../images/ii.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="164.0" fitWidth="260.0" layoutX="360.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/Велик%201.jpg" />
+                        <Image url="@../../../images/ii.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" layoutX="127.0" layoutY="1706.0" prefHeight="21.0" prefWidth="406.0" text="Бронировать можно только один велосипед" textFill="#012551">

@@ -40,7 +40,12 @@ public class NotPay {
     private Label textOrders1;
 
     private static int id_book=0;
+    private  Rent_SQL rents;
 
+    private NotPay(){
+        rents = Rent_SQL.getInstance();
+
+    }
 
     @FXML
     void toBack(ActionEvent event) throws IOException {
@@ -55,13 +60,12 @@ public class NotPay {
     void toPay(ActionEvent event)  throws IOException {
         id_book = Integer.parseInt(numBook.getText());
         //Bookings_SQL book = new Bookings_SQL();
-        Rent_SQL rent = new Rent_SQL();
-        ArrayList<Integer> list = rent.getRentsFor(phone.getText());
+        ArrayList<Integer> list = rents.getRentsFor(phone.getText());
         String flag = "не найдена";
         if (!numBook.getText().isEmpty()){
             for (int i=0;i<list.size();i++){
                 if (Integer.parseInt(numBook.getText()) == list.get(i)){
-                    if (rent.getStatus(Integer.parseInt(numBook.getText())).equals("не оплачено"))
+                    if (rents.getStatus(Integer.parseInt(numBook.getText())).equals("не оплачено"))
                         flag = "не оплачено";
                     else
                         flag = "оплачено";

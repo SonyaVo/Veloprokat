@@ -5,11 +5,30 @@ import java.time.LocalDate;
 
 public class Bikes_SQL {
 
+    // Единственный экземпляр класса
+    private static Bikes_SQL instance;
+
+    // Закрытый конструктор, чтобы предотвратить создание экземпляров извне
+    private Bikes_SQL() {
+        try {
+            // Загружаем драйвер JDBC
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        }
+    }
+
+    // Метод для получения единственного экземпляра класса
+    public static synchronized Bikes_SQL getInstance() {
+        if (instance == null) {
+            instance = new Bikes_SQL();
+        }
+        return instance;
+    }
+
     public boolean inStock(String bike, int id_markets, String date){
         int countInMarkets = inMarkets(bike,id_markets);
-        System.out.println(countInMarkets);
         int countInBook = inBook(bike,id_markets,date);
-        System.out.println(countInBook);
         if ((countInMarkets - countInBook <= 0)){
 
             return false;
@@ -45,9 +64,6 @@ public class Bikes_SQL {
 
             if (resultSet.next()) {
                 countInMarkets = resultSet.getInt("count");
-            } else {
-                System.out.println("не найден");
-
             }
             // Закрываем ресурсы
             resultSet.close();
@@ -101,9 +117,6 @@ public class Bikes_SQL {
 
             if (resultSet.next()) {
                 countInMarkets = resultSet.getInt("count");
-            } else {
-                System.out.println("не найден");
-
             }
             // Закрываем ресурсы
             resultSet.close();
@@ -175,9 +188,6 @@ public class Bikes_SQL {
             if (resultSet.next()) {
                 id = resultSet.getInt("id_bike");
                 System.out.println(id);
-            } else {
-                System.out.println("не найден");
-
             }
             // Закрываем ресурсы
             resultSet.close();
@@ -200,71 +210,8 @@ public class Bikes_SQL {
         return id;
     }
 
-    public int getTypeInBook(int id_booking){
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        int id = -1;
-
-        try {
-            // Проверяем наличие драйвера JDBC
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Устанавливаем соединение с базой данных
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/veloprokat",
-                    "veloprokat", "Stud249013!");
-
-            // Создаем объект Statement для выполнения запросов к базе данных
-            Statement statement = connection.createStatement();
-
-            // Формируем SQL-запрос
-            String query = "SELECT id_type From bikes JOIN bookings USING (id_bike) WHERE id_booking = ?";
-
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id_booking);
-
-            // Выполняем запрос
-            resultSet = preparedStatement.executeQuery();
 
 
-            if (resultSet.next()) {
-                return resultSet.getInt("id_type");
-            } else {
-                System.out.println("не найден");
-
-            }
-            // Закрываем ресурсы
-            resultSet.close();
-            statement.close();
-            connection.close();
-        } catch (ClassNotFoundException e) {
-            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
-        } catch (SQLException e) {
-            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
-        } finally {
-            try {
-                // Закрываем соединение в блоке finally для обеспечения его закрытия в любом случае
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
-            }
-        }
-        return id;
-
-    }
-
-    public static void main(String[] args) {
-        Bikes_SQL b = new Bikes_SQL();
-//        LocalDate currentDate = LocalDate.now();
-//
-//        String c_d = currentDate.getYear() + "-"+currentDate.getMonthValue()+"-" + currentDate.getDayOfMonth();
-//        System.out.println(c_d);
-        LocalDate date1 = LocalDate.of(2024, 6, 16);
-        System.out.println(b.getId("MAXIT D060", 1, date1));
-    }
 
 
 

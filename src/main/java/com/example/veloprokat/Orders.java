@@ -26,15 +26,20 @@ public class Orders {
     private Button btnBack;
     @FXML
     private Label textOrders;
+    private Bookings_SQL books;
+    private Rent_SQL rents;
 
     public Orders(){
-        List.add(nameFile);
+        //List.add(nameFile);
+        books = Bookings_SQL.getInstance();
+        rents = Rent_SQL.getInstance();
+
     }
     @FXML
     void toBack(ActionEvent event) throws IOException {
         if (!List.list.isEmpty()) {
             Stage stage = (Stage) btnBack.getScene().getWindow();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(List.get(List.list.size() - 2))));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(List.get(List.list.size() - 1))));
             stage.setTitle("dddd");
             stage.setScene(new Scene(root, 700, 600));
             stage.show();
@@ -54,12 +59,11 @@ public class Orders {
         assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'orders.fxml'.";
         assert textOrders != null : "fx:id=\"textOrders\" was not injected: check your FXML file 'orders.fxml'.";
 
-        Bookings_SQL book = new Bookings_SQL();
-        ArrayList<Integer> bookings = book.bookingsForUser(EntryUser.getLogin());
-        Rent_SQL rent = new Rent_SQL();
+        ArrayList<Integer> bookings = books.bookingsForUser(EntryUser.getLogin());
+
         String text = "";
         for (int i =0; i < bookings.size(); i++ ){
-            if (!rent.isInRent(bookings.get(i))) {
+            if (!rents.isInRent(bookings.get(i))) {
                 text += bookings.get(i) + "\n";
             }
         }

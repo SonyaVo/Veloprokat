@@ -86,11 +86,13 @@ public class Registration {
 
     private static String varPassword;
     private static String varPassword2;
+    private Users_SQL users;
 
 
 
     public Registration(){
         List.add(nameFile);
+        users = Users_SQL.getInstance();
     }
 
     @FXML
@@ -105,12 +107,12 @@ public class Registration {
 
     @FXML
     void toEntry(ActionEvent event) throws IOException {
-        varFirstName = firstName.getText();
-        varSecondName = secondName.getText();
-        varPatronymic = patronymic.getText();
-        varPassport = passport.getText();
-        varPhone = phone.getText();
-        varAdress = adress.getText();
+        varFirstName = firstName.getText().replaceAll(" +","");
+        varSecondName = secondName.getText().replaceAll(" +","");
+        varPatronymic = patronymic.getText().replaceAll(" +","");
+        varPassport = passport.getText().replaceAll(" +","");
+        varPhone = phone.getText().replaceAll(" +","");
+        varAdress = adress.getText().replaceAll(" +","");
         //String n = name.getText();
         //System.out.println(name);
 
@@ -128,7 +130,6 @@ public class Registration {
 //        System.out.println(adr);
 //        String ph = phone.getText();
 //        System.out.println(ph);
-
         varPassword = password.getText();
         varPassword2 = passwordAg.getText();
 
@@ -148,6 +149,8 @@ public class Registration {
 //
 //        }
 
+
+
         errorText.setText(generalError());
         errorTextFirstName.setText(errorFirstName());
         errorTextSecondName.setText(errorSecondName());
@@ -158,14 +161,18 @@ public class Registration {
         if (errorText.getText().isEmpty() && errorTextPassport.getText().isEmpty() && errorTextPhone.getText().isEmpty() && errorTextFirstName.getText().isEmpty() && errorTextSecondName.getText().isEmpty() && errorTextPatronymic.getText().isEmpty()) {
             if (agree.isSelected()) {
 
-                Users_SQL users = new Users_SQL();
+
                 boolean flag = users.addUser(varFirstName,varSecondName,varPatronymic,varPhone,varPassport,varAdress,varPassword);
+
                 if(flag) {
                     Stage stage = (Stage) btnNext.getScene().getWindow();
                     Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start_scene_user.fxml")));
                     stage.setTitle("dddd");
                     stage.setScene(new Scene(root, 700, 600));
                     stage.show();
+                }
+                else {
+                    errorText.setText("пользователь уже есть в системе");
                 }
             } else {
                 agree.setStyle("-fx-text-fill: red;");
@@ -213,7 +220,7 @@ public class Registration {
     }
 
     private String errorPassport() {
-        if (!varPassport.matches("^\\d{4}\\d{6}$")) {
+        if (!varPassport.matches("^\\d{10}$")) {
             return "Паспорт введен неправильно";
         }
         return "";

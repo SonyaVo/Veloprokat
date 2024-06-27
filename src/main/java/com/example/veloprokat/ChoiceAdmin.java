@@ -16,16 +16,13 @@ import javafx.stage.Stage;
 public class ChoiceAdmin {
 
     @FXML
-    private ResourceBundle resources;
+    private Button btnCancel;
 
     @FXML
-    private URL location;
+    private Button btnInfo;
+
     @FXML
     private Button btnOut;
-
-
-    @FXML
-    private Button btnCancel;
 
     @FXML
     private Button btnPay;
@@ -81,12 +78,21 @@ public class ChoiceAdmin {
     }
 
     @FXML
+    void toInfo(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("inf_book.fxml")));
+        stage.setTitle("dddd");
+        stage.setScene(new Scene(root, 700, 600));
+        stage.show();
+    }
+    @FXML
     void initialize() {
         assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'choice_admin.fxml'.";
         assert btnPay != null : "fx:id=\"btnPay\" was not injected: check your FXML file 'choice_admin.fxml'.";
         assert btnRent != null : "fx:id=\"btnRent\" was not injected: check your FXML file 'choice_admin.fxml'.";
         assert errorText != null : "fx:id=\"errorText\" was not injected: check your FXML file 'choice_admin.fxml'.";
         assert btnOut != null : "fx:id=\"btnOut\" was not injected: check your FXML file 'choice_admin.fxml'.";
+        assert btnInfo != null : "fx:id=\"btnInfo\" was not injected: check your FXML file 'choice_admin.fxml'.";
 
     }
 

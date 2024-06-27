@@ -46,9 +46,15 @@ public class Rent {
     @FXML
     private Label textOrders;
     private static int id_book;
+    private Bookings_SQL books;
+    private Rent_SQL rents;
 
     public Rent(){
         List.add(nameFile);
+        books = Bookings_SQL.getInstance();
+        rents = Rent_SQL.getInstance();
+
+
     }
 
     @FXML
@@ -63,8 +69,8 @@ public class Rent {
     @FXML
     void toPay(ActionEvent event)  throws IOException {
         id_book = Integer.parseInt(numBook.getText());
-        Bookings_SQL book = new Bookings_SQL();
-        ArrayList<Integer> list = book.bookingsForUser(phone.getText());
+
+        ArrayList<Integer> list = books.bookingsForUser(phone.getText());
         boolean flag = false;
         if (!numBook.getText().isEmpty()){
             for (int i=0;i<list.size();i++){
@@ -93,10 +99,8 @@ public class Rent {
 
     @FXML
     void toNotPay(ActionEvent event) throws IOException {
-        Bookings_SQL book = new Bookings_SQL();
-        Rent_SQL rent = new Rent_SQL();
 
-        ArrayList<Integer> list = book.bookingsForUser(phone.getText());
+        ArrayList<Integer> list = books.bookingsForUser(phone.getText());
         boolean flag = false;
         if (!numBook.getText().isEmpty()){
             for (int i=0;i<list.size();i++){
@@ -110,9 +114,11 @@ public class Rent {
             btnPay.setDisable(true);
             btnNotPay.setDisable(true);
             id_book = Integer.parseInt(numBook.getText());
-            rent.addRent(id_book,"не оплачено");
-
-            errorText.setText("УСПЕШНО");
+            boolean res = rents.addRent(id_book,"не оплачено");
+            if (res)
+                errorText.setText("УСПЕШНО");
+            else
+                errorText.setText("попробуйте снова");
         }
         else {
             errorText.setText("бронь не найдена");

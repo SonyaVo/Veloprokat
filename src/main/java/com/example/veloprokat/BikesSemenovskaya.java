@@ -160,7 +160,7 @@ public class BikesSemenovskaya  {
     public BikesSemenovskaya(){
 
         List.add(nameFile);
-        bikes = new Bikes_SQL();
+        bikes = Bikes_SQL.getInstance();
     }
 
 
@@ -362,13 +362,24 @@ public class BikesSemenovskaya  {
             }
         }
 
+        LocalDate currentDate = LocalDate.now();
+        if ((choice[1] != null) & (date.getValue().isAfter(currentDate) | date.getValue().isEqual(currentDate))){
+            Stage stage = (Stage) btnNext.getScene().getWindow();
 
-        Stage stage = (Stage) btnNext.getScene().getWindow();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("result.fxml")));
+            stage.setTitle("dddd");
+            stage.setScene(new Scene(root, 700, 600));
+            stage.show();
+        }
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("result.fxml")));
-        stage.setTitle("dddd");
-        stage.setScene(new Scene(root, 700, 600));
-        stage.show();
+        if (!(date.getValue().isAfter(currentDate) | date.getValue().isEqual(currentDate))){
+            errorText.setText("дата некорректна");
+
+        }
+        else {
+            errorText.setText("выберите модель и тариф");
+        }
+
     }
 
 
@@ -542,7 +553,6 @@ public class BikesSemenovskaya  {
         LocalDate selectedDate = date.getValue();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String date_format = selectedDate.format(formatter);
-        System.out.println(date_format);
 
         //String c_d = currentDate.getYear() + "-"+currentDate.getMonth()+"-" + currentDate.getDayOfMonth();
 

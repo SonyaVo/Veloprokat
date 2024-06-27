@@ -41,8 +41,19 @@ public class SetPay {
 
     @FXML
     private Label textOrders;
+
+
+    private Bookings_SQL books;
+    private Rent_SQL rents;
+    private Tariff_SQL tariffs;
+
     public SetPay(){
         List.add(nameFile);
+        books = Bookings_SQL.getInstance();
+        rents = Rent_SQL.getInstance();
+        tariffs = Tariff_SQL.getInstance();
+
+
     }
 
     public String getNameFile() {
@@ -51,10 +62,9 @@ public class SetPay {
 
     @FXML
     void isPay(ActionEvent event) {
-        Bookings_SQL book = new Bookings_SQL();
-        Rent_SQL rent = new Rent_SQL();
 
-        boolean flag = rent.setStaus(Integer.parseInt(numBook.getText()), "оплачено");
+
+        boolean flag = rents.setStaus(Integer.parseInt(numBook.getText()), "оплачено");
         if (flag)
             status.setText("УСПЕШНО");
         btnPay.setDisable(true);
@@ -80,13 +90,11 @@ public class SetPay {
         assert sum != null : "fx:id=\"sum\" was not injected: check your FXML file 'pay.fxml'.";
         assert textOrders != null : "fx:id=\"textOrders\" was not injected: check your FXML file 'pay.fxml'.";
 
-        Bikes_SQL bike = new Bikes_SQL();
-        Tariff_SQL t = new Tariff_SQL();
-        Bookings_SQL b = new Bookings_SQL();
+
         numBook.setText(NotPay.getId_book()+"");
-        int id_type = bike.getTypeInBook(NotPay.getId_book());
-        int days = b.getDaysForBook(NotPay.getId_book());
-        sum.setText("" + t.getPrice(id_type, days));
+        int id_type = books.getTypeInBook(NotPay.getId_book());
+        int days = books.getDaysForBook(NotPay.getId_book());
+        sum.setText("" + tariffs.getPrice(id_type, days));
 
 
     }

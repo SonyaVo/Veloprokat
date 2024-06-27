@@ -3,14 +3,34 @@ package com.example.veloprokat;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Bookings_SQL {
+
+    // Единственный экземпляр класса
+    private static Bookings_SQL instance;
+
+    // Закрытый конструктор, чтобы предотвратить создание экземпляров извне
+    private Bookings_SQL() {
+        try {
+            // Загружаем драйвер JDBC
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        }
+    }
+
+    // Метод для получения единственного экземпляра класса
+    public static synchronized Bookings_SQL getInstance() {
+        if (instance == null) {
+            instance = new Bookings_SQL();
+        }
+        return instance;
+    }
     public boolean addBooking(String bike, String phone, int id_market, LocalDate date_start, LocalDate date_finish){
        // Users_SQL users = new Users_SQL();
         Connection connection = null;
         boolean success = false;
-        Bikes_SQL bikes = new Bikes_SQL();
+        Bikes_SQL bikes = Bikes_SQL.getInstance();
         try {
             // Проверяем наличие драйвера JDBC
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -94,7 +114,6 @@ public class Bookings_SQL {
 
             if (resultSet.next()) {
                 id = resultSet.getInt("id_booking");
-                System.out.println(id);
             } else {
                 System.out.println("не найден");
 
@@ -223,61 +242,61 @@ public class Bookings_SQL {
         return bookings;
     }
 
-    public boolean isInBookings(int id_booking){
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-
-        try {
-            // Проверяем наличие драйвера JDBC
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Устанавливаем соединение с базой данных
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/veloprokat",
-                    "veloprokat", "Stud249013!");
-
-            // Создаем объект Statement для выполнения запросов к базе данных
-            Statement statement = connection.createStatement();
-
-            // Формируем SQL-запрос
-            String query = "SELECT id_booking FROM bookings WHERE id_booking = ? ;";
-
-            preparedStatement = connection.prepareStatement(query);
-
-
-            preparedStatement.setInt(1, id_booking);
-
-
-            // Выполняем запрос
-            resultSet = preparedStatement.executeQuery();
-
-
-            if (resultSet.next()) {
-                return true;
-            }
-
-            // Закрываем ресурсы
-            resultSet.close();
-            statement.close();
-            connection.close();
-        } catch (ClassNotFoundException e) {
-            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
-        } catch (SQLException e) {
-            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
-        } finally {
-            try {
-                // Закрываем соединение в блоке finally для обеспечения его закрытия в любом случае
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
-            }
-        }
-        return false;
-
-    }
+//    public boolean isInBookings(int id_booking){
+//        Connection connection = null;
+//        PreparedStatement preparedStatement = null;
+//        ResultSet resultSet = null;
+//
+//        try {
+//            // Проверяем наличие драйвера JDBC
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//            // Устанавливаем соединение с базой данных
+//            connection = DriverManager.getConnection(
+//                    "jdbc:mysql://localhost:3306/veloprokat",
+//                    "veloprokat", "Stud249013!");
+//
+//            // Создаем объект Statement для выполнения запросов к базе данных
+//            Statement statement = connection.createStatement();
+//
+//            // Формируем SQL-запрос
+//            String query = "SELECT id_booking FROM bookings WHERE id_booking = ? ;";
+//
+//            preparedStatement = connection.prepareStatement(query);
+//
+//
+//            preparedStatement.setInt(1, id_booking);
+//
+//
+//            // Выполняем запрос
+//            resultSet = preparedStatement.executeQuery();
+//
+//
+//            if (resultSet.next()) {
+//                return true;
+//            }
+//
+//            // Закрываем ресурсы
+//            resultSet.close();
+//            statement.close();
+//            connection.close();
+//        } catch (ClassNotFoundException e) {
+//            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+//        } catch (SQLException e) {
+//            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+//        } finally {
+//            try {
+//                // Закрываем соединение в блоке finally для обеспечения его закрытия в любом случае
+//                if (connection != null) {
+//                    connection.close();
+//                }
+//            } catch (SQLException e) {
+//                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+//            }
+//        }
+//        return false;
+//
+//    }
 
     public boolean deleteBooking(int id_booking) {
         Connection connection = null;
@@ -367,4 +386,112 @@ public class Bookings_SQL {
         }
         return period;
     }
+
+    public String[] getInfo(int id_book){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;
+        int period = 0;
+        String[] list = new String[3];
+
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/veloprokat",
+                    "veloprokat", "Stud249013!");
+
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT name, date_start, date_finish FROM bookings JOIN bikes USING(id_bike) Where id_booking = ?";
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id_book);
+
+
+
+            // Выполняем запрос
+            result = preparedStatement.executeQuery();
+
+
+            if (result.next()) {
+                list[0] = result.getString("name");
+                list[1] = result.getString("date_start");
+                list[2] = result.getString("date_finish");
+
+
+            }
+            // Закрываем ресурсы
+            result.close();
+            statement.close();
+            connection.close();
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        } finally {
+            try {
+                // Закрываем соединение в блоке finally для обеспечения его закрытия в любом случае
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+            }
+        }
+        return list;
+    }
+    public int getTypeInBook(int id_booking){
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int id = -1;
+
+        try {
+            // Проверяем наличие драйвера JDBC
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Устанавливаем соединение с базой данных
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/veloprokat",
+                    "veloprokat", "Stud249013!");
+
+            // Создаем объект Statement для выполнения запросов к базе данных
+            Statement statement = connection.createStatement();
+
+            // Формируем SQL-запрос
+            String query = "SELECT id_type From bikes JOIN bookings USING (id_bike) WHERE id_booking = ?";
+
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id_booking);
+
+            // Выполняем запрос
+            resultSet = preparedStatement.executeQuery();
+
+
+            if (resultSet.next()) {
+                return resultSet.getInt("id_type");
+            }
+            // Закрываем ресурсы
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        } finally {
+            try {
+                // Закрываем соединение в блоке finally для обеспечения его закрытия в любом случае
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+            }
+        }
+        return id;
+
+    }
+
 }

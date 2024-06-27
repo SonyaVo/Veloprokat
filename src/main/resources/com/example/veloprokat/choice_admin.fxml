@@ -19,12 +19,12 @@
                         <Font name="DejaVu Sans Mono Bold" size="20.0" />
                     </font></Button>
                 <Label fx:id="errorText" layoutX="118.0" layoutY="389.0" prefHeight="17.0" prefWidth="418.0" />
-            <Button fx:id="btnCancel" alignment="CENTER" layoutX="232.0" layoutY="280.0" mnemonicParsing="false" onAction="#toCancel" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: #bedbff;" text="Отмена брони" textFill="#012551">
+            <Button fx:id="btnCancel" alignment="CENTER" layoutX="232.0" layoutY="334.0" mnemonicParsing="false" onAction="#toCancel" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: a5ceff;" text="Отмена брони" textFill="#012551">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnPay" layoutX="245.0" layoutY="336.0" mnemonicParsing="false" onAction="#toPay" prefHeight="38.0" prefWidth="170.0" style="-fx-background-color: a5ceff;" text="Оплата" textFill="#012551">
+            <Button fx:id="btnPay" alignment="CENTER" layoutX="245.0" layoutY="280.0" mnemonicParsing="false" onAction="#toPay" prefHeight="38.0" prefWidth="170.0" style="-fx-background-color: #82bafa;" text="Оплата" textFill="#012551">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
@@ -32,6 +32,11 @@
             <Button fx:id="btnOut" layoutX="566.0" layoutY="21.0" mnemonicParsing="false" onAction="#toOut" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: a5ceff;" text="Выйти" textFill="#012551">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnInfo" layoutX="193.0" layoutY="387.0" mnemonicParsing="false" onAction="#toInfo" prefHeight="38.0" prefWidth="274.0" style="-fx-background-color: #bedbff;" text="Информация по брони" textFill="#012551">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
             </Button>
             </children>
